@@ -13,6 +13,7 @@
   "memory": "130.13 MB",
   "retrievedAt": 1782841537,
   "runtime": "47 ms",
+  "notes": "Bug note: put() must cache the new node with cache.put(key, node), and when key already exists it must update node.value before moving it to the head. Without those two steps, new keys cannot be found by get(), and existing keys keep stale values.",
   "schemaVersion": 1,
   "slug": "lru-cache",
   "source": "user_submission",
