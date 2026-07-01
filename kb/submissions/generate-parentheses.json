@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "slug": "generate-parentheses",
+  "frontendId": "22",
+  "title": "Generate Parentheses",
+  "titleCn": "括号生成",
+  "difficulty": "MEDIUM",
+  "aliases": [
+    "22",
+    "22. 括号生成",
+    "Generate Parentheses",
+    "generate-parentheses",
+    "括号生成"
+  ],
+  "source": "user_submission",
+  "sourceUrl": "https://leetcode.cn/problems/generate-parentheses/submissions/715463174",
+  "submissionId": "715463174",
+  "status": "通过",
+  "language": "Java",
+  "runtime": "0 ms",
+  "memory": "43.69 MB",
+  "submittedAt": "2026.04.06 00:27",
+  "retrievedAt": 1782843163,
+  "code": "class Solution {\n    List<String> res = new ArrayList<>();\n    StringBuilder sb = new StringBuilder(\"\");\n    public List<String> generateParenthesis(int n) {\n        backtracking(n,0,0);\n        return res;\n    }\n    private void backtracking(int n,int left,int right){\n        if(sb.length()==2*n){\n            res.add(sb.toString());\n        }\n        if(left<n){\n            sb.append('(');\n            backtracking(n,left+1,right);\n            sb.deleteCharAt(sb.length()-1);\n        }\n        if(right<left){\n            sb.append(')');\n            backtracking(n,left,right+1);\n            sb.deleteCharAt(sb.length()-1);\n        }\n    }\n}",
+  "notes": null
+}

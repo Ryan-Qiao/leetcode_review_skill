@@ -1,0 +1,23 @@
+{
+  "slug": "merge-intervals",
+  "frontendId": "56",
+  "title": "Merge Intervals",
+  "titleCn": "合并区间",
+  "difficulty": "MEDIUM",
+  "source": "user_submission",
+  "sourceUrl": "https://leetcode.cn/problems/merge-intervals/submissions/711888825",
+  "submissionId": "711888825",
+  "status": "通过",
+  "language": "Java",
+  "submittedAt": "2026.03.25 17:59",
+  "code": "class Solution {\n    public int[][] merge(int[][] intervals) {\n        Arrays.sort(intervals,(p,q)->p[0]-q[0]);\n        List<int[]> list = new ArrayList<>();\n        list.add(intervals[0]);\n        for(int i = 1;i<intervals.length;i++){\n            int n = list.size();\n            if(list.get(n-1)[1]>=intervals[i][0]){\n                list.get(n-1)[1] = Math.max(list.get(n-1)[1],intervals[i][1]);\n            }else{\n                list.add(intervals[i]);\n            }\n        }\n        int[][]res = new int[list.size()][2];\n        int j = 0;\n        for(int[]item:list){\n            res[j++] = item;\n        }\n        return res;\n    }\n}",
+  "schemaVersion": 1,
+  "aliases": [
+    "56",
+    "56. 合并区间",
+    "Merge Intervals",
+    "merge-intervals",
+    "合并区间"
+  ],
+  "retrievedAt": 1782840626
+}

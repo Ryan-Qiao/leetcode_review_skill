@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "slug": "binary-tree-inorder-traversal",
+  "frontendId": "94",
+  "title": "Binary Tree Inorder Traversal",
+  "titleCn": "二叉树的中序遍历",
+  "difficulty": "EASY",
+  "aliases": [
+    "94",
+    "94. 二叉树的中序遍历",
+    "Binary Tree Inorder Traversal",
+    "binary-tree-inorder-traversal",
+    "二叉树的中序遍历"
+  ],
+  "source": "user_submission",
+  "sourceUrl": "https://leetcode.cn/problems/binary-tree-inorder-traversal/submissions/713637257",
+  "submissionId": "713637257",
+  "status": "通过",
+  "language": "Java",
+  "runtime": "0 ms",
+  "memory": "42.48 MB",
+  "submittedAt": "2026.03.30 21:23",
+  "retrievedAt": 1782843206,
+  "code": "/**\n * Definition for a binary tree node.\n * public class TreeNode {\n *     int val;\n *     TreeNode left;\n *     TreeNode right;\n *     TreeNode() {}\n *     TreeNode(int val) { this.val = val; }\n *     TreeNode(int val, TreeNode left, TreeNode right) {\n *         this.val = val;\n *         this.left = left;\n *         this.right = right;\n *     }\n * }\n */\nclass Solution {\n    List<Integer> res = new ArrayList<>();\n    public List<Integer> inorderTraversal(TreeNode root) {\n        inorder(root);\n        return res;\n    }\n    public void inorder(TreeNode root){\n        if(root==null)\n        return;\n        inorder(root.left);\n        res.add(root.val);\n        inorder(root.right);\n    }\n}",
+  "notes": null
+}

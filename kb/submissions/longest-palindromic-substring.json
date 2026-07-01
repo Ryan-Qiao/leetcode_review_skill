@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "slug": "longest-palindromic-substring",
+  "frontendId": "5",
+  "title": "Longest Palindromic Substring",
+  "titleCn": "最长回文子串",
+  "difficulty": "MEDIUM",
+  "aliases": [
+    "5",
+    "5. 最长回文子串",
+    "Longest Palindromic Substring",
+    "longest-palindromic-substring",
+    "最长回文子串"
+  ],
+  "source": "user_submission",
+  "sourceUrl": "https://leetcode.cn/problems/longest-palindromic-substring/submissions/705172761",
+  "submissionId": "705172761",
+  "status": "通过",
+  "language": "Java",
+  "runtime": "18 ms",
+  "memory": "43.04 MB",
+  "submittedAt": "2026.03.10 16:35",
+  "retrievedAt": 1782849838,
+  "code": "class Solution{\n    public String longestPalindrome(String s){\n        int res_len = 0;\n        int res_start = 0;\n       for(int i = 0;i<s.length();i++){\n           int L = i;\n           int R = i;\n           while(L>=0 && R<s.length() && s.charAt(L)==s.charAt(R)){\n               if(R-L+1>res_len){\n                   res_start = L;\n                   res_len = R-L+1;\n               }\n               L--;\n               R++;\n           }\n           L = i;\n           R = i+1;\n           while(L>=0 && R<s.length() && s.charAt(L)==s.charAt(R)){\n               if(R-L+1>res_len){\n                   res_start = L;\n                   res_len = R-L+1;\n               }\n               L--;\n               R++;\n           }\n       }\n        return s.substring(res_start,res_start+res_len);\n    }\n}",
+  "notes": null
+}

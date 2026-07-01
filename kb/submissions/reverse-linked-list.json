@@ -1,0 +1,25 @@
+{
+  "slug": "reverse-linked-list",
+  "frontendId": "206",
+  "title": "Reverse Linked List",
+  "titleCn": "反转链表",
+  "difficulty": "EASY",
+  "source": "user_submission",
+  "sourceUrl": "https://leetcode.cn/problems/reverse-linked-list/submissions/713008121",
+  "submissionId": "713008121",
+  "status": "通过",
+  "language": "Java",
+  "runtime": "0 ms",
+  "memory": "43.65 MB",
+  "submittedAt": "2026.03.28 23:15",
+  "code": "/**\n * Definition for singly-linked list.\n * public class ListNode {\n *     int val;\n *     ListNode next;\n *     ListNode() {}\n *     ListNode(int val) { this.val = val; }\n *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }\n * }\n */\nclass Solution {\n    public ListNode reverseList(ListNode head) {\n        return reverse(head);\n    }\n    public ListNode reverse(ListNode head){\n        ListNode pre = null;\n        ListNode cur = head;\n        while(cur!=null){\n            ListNode temp = cur.next;\n            cur.next = pre;\n            pre = cur;\n            cur = temp;\n        }\n        return pre;\n    }\n}",
+  "schemaVersion": 1,
+  "aliases": [
+    "206",
+    "206. 反转链表",
+    "Reverse Linked List",
+    "reverse-linked-list",
+    "反转链表"
+  ],
+  "retrievedAt": 1782841474
+}

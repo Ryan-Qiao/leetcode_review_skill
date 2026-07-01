@@ -1,0 +1,23 @@
+{
+  "slug": "merge-two-sorted-lists",
+  "frontendId": "21",
+  "title": "Merge Two Sorted Lists",
+  "titleCn": "合并两个有序链表",
+  "difficulty": "EASY",
+  "source": "user_submission",
+  "sourceUrl": "https://leetcode.cn/problems/merge-two-sorted-lists/submissions/715455899",
+  "submissionId": "715455899",
+  "status": "通过",
+  "language": "Java",
+  "submittedAt": "2026.04.05 23:47",
+  "code": "/**\n * Definition for singly-linked list.\n * public class ListNode {\n *     int val;\n *     ListNode next;\n *     ListNode() {}\n *     ListNode(int val) { this.val = val; }\n *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }\n * }\n */\nclass Solution {\n    public ListNode mergeTwoLists(ListNode list1, ListNode list2) {\n        if(list1==null)\n        return list2;\n        if(list2==null)\n        return list1;\n        if(list1.val<list2.val){\n            list1.next = mergeTwoLists(list1.next,list2);\n            return list1;\n        }else{\n            list2.next = mergeTwoLists(list1,list2.next);\n            return list2;\n        }\n    }\n}",
+  "schemaVersion": 1,
+  "aliases": [
+    "21",
+    "21. 合并两个有序链表",
+    "Merge Two Sorted Lists",
+    "merge-two-sorted-lists",
+    "合并两个有序链表"
+  ],
+  "retrievedAt": 1782840729
+}

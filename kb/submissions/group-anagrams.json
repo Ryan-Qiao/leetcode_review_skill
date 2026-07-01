@@ -1,0 +1,23 @@
+{
+  "aliases": [
+    "49",
+    "49. 字母异位词分组",
+    "Group Anagrams",
+    "group-anagrams",
+    "字母异位词分组"
+  ],
+  "code": "class Solution {\n    public List<List<String>> groupAnagrams(String[] strs) {\n        return new ArrayList<>(Arrays.stream(strs).collect(Collectors.groupingBy(\n            str->{\n                char[]arr = str.toCharArray();\n                Arrays.sort(arr);\n                return new String(arr);\n            }\n        )).values());\n    }\n}",
+  "difficulty": "MEDIUM",
+  "frontendId": "49",
+  "language": "Java",
+  "retrievedAt": 1782840500,
+  "schemaVersion": 1,
+  "slug": "group-anagrams",
+  "source": "user_submission",
+  "sourceUrl": "https://leetcode.cn/problems/group-anagrams/submissions/713935118",
+  "status": "通过",
+  "submissionId": "713935118",
+  "submittedAt": "2026.03.31 18:38",
+  "title": "Group Anagrams",
+  "titleCn": "字母异位词分组"
+}

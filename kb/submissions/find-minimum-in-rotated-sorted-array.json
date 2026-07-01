@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "slug": "find-minimum-in-rotated-sorted-array",
+  "frontendId": "153",
+  "title": "Find Minimum in Rotated Sorted Array",
+  "titleCn": "寻找旋转排序数组中的最小值",
+  "difficulty": "MEDIUM",
+  "aliases": [
+    "153",
+    "153. 寻找旋转排序数组中的最小值",
+    "Find Minimum in Rotated Sorted Array",
+    "find-minimum-in-rotated-sorted-array",
+    "寻找旋转排序数组中的最小值"
+  ],
+  "source": "user_submission",
+  "sourceUrl": "https://leetcode.cn/problems/find-minimum-in-rotated-sorted-array/submissions/715442878",
+  "submissionId": "715442878",
+  "status": "通过",
+  "language": "Java",
+  "runtime": "0 ms",
+  "memory": "43.15 MB",
+  "submittedAt": "2026.04.05 22:52",
+  "retrievedAt": 1782843272,
+  "code": "class Solution {\n    public int findMin(int[] nums) {\n        int L = 0;\n        int R = nums.length-1;\n        while(L<R){\n            int mid = L + (R-L)/2;\n            if(nums[mid]>nums[nums.length-1]){\n                L = mid+1;;\n            }else{\n                R = mid;\n            }\n        }\n        return nums[L];\n    }\n}",
+  "notes": null
+}

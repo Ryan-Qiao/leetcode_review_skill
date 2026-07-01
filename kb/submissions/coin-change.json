@@ -1,0 +1,25 @@
+{
+  "slug": "coin-change",
+  "frontendId": "322",
+  "title": "Coin Change",
+  "titleCn": "零钱兑换",
+  "difficulty": "MEDIUM",
+  "source": "user_submission",
+  "sourceUrl": "https://leetcode.cn/problems/coin-change/submissions/713673013",
+  "submissionId": "713673013",
+  "status": "通过",
+  "language": "Java",
+  "runtime": "15 ms",
+  "memory": "45.48 MB",
+  "submittedAt": "2026.03.30 22:44",
+  "code": "class Solution {\n    public int coinChange(int[] coins, int amount) {\n        int[]dp = new int[amount+1];\n        Arrays.fill(dp,Integer.MAX_VALUE);\n        dp[0] = 0;\n        for(int i = 1;i<=amount;i++){\n            for(int coin:coins){\n                if(i-coin>=0 && dp[i-coin]!=Integer.MAX_VALUE){\n                    dp[i] = Math.min(dp[i],dp[i-coin]+1);\n                }\n            }\n        }\n        return dp[amount]==Integer.MAX_VALUE?-1:dp[amount];\n    }\n}",
+  "schemaVersion": 1,
+  "aliases": [
+    "322",
+    "322. 零钱兑换",
+    "Coin Change",
+    "coin-change",
+    "零钱兑换"
+  ],
+  "retrievedAt": 1782841648
+}

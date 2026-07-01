@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "slug": "next-permutation",
+  "frontendId": "31",
+  "title": "Next Permutation",
+  "titleCn": "下一个排列",
+  "difficulty": "MEDIUM",
+  "aliases": [
+    "31",
+    "31. 下一个排列",
+    "Next Permutation",
+    "next-permutation",
+    "下一个排列"
+  ],
+  "source": "user_submission",
+  "sourceUrl": "https://leetcode.cn/problems/next-permutation/submissions/713014304",
+  "submissionId": "713014304",
+  "status": "通过",
+  "language": "Java",
+  "runtime": "2 ms",
+  "memory": "44.03 MB",
+  "submittedAt": "2026.03.28 23:34",
+  "retrievedAt": 1782849792,
+  "code": "class Solution {\n    public void nextPermutation(int[] nums) {\n        for(int i = nums.length-1;i>=0;i--){\n            if(i==0){\n                Arrays.sort(nums);\n                return;\n            }\n            if(nums[i-1]<nums[i]){\n                Arrays.sort(nums,i,nums.length);\n                for(int j = i;j<nums.length;j++){\n                    if(nums[j]>nums[i-1]){\n                        swap(nums,j,i-1);\n                        return;\n                    }\n                }\n            }\n        }\n    }\n    public void swap(int[]nums,int a,int b){\n        int temp = nums[a];\n        nums[a] = nums[b];\n        nums[b] = temp;\n    }\n}",
+  "notes": null
+}

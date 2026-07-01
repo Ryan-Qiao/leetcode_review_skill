@@ -1,0 +1,25 @@
+{
+  "slug": "convert-sorted-array-to-binary-search-tree",
+  "frontendId": "108",
+  "title": "Convert Sorted Array to Binary Search Tree",
+  "titleCn": "将有序数组转换为二叉搜索树",
+  "difficulty": "EASY",
+  "source": "user_submission",
+  "sourceUrl": "https://leetcode.cn/problems/convert-sorted-array-to-binary-search-tree/submissions/710714494",
+  "submissionId": "710714494",
+  "status": "通过",
+  "language": "Java",
+  "runtime": "0 ms",
+  "memory": "44.05 MB",
+  "submittedAt": "2026.03.22 23:03",
+  "code": "/**\n * Definition for a binary tree node.\n * public class TreeNode {\n *     int val;\n *     TreeNode left;\n *     TreeNode right;\n *     TreeNode() {}\n *     TreeNode(int val) { this.val = val; }\n *     TreeNode(int val, TreeNode left, TreeNode right) {\n *         this.val = val;\n *         this.left = left;\n *         this.right = right;\n *     }\n * }\n */\nclass Solution {\n    public TreeNode sortedArrayToBST(int[] nums) {\n        return buildTree(nums,0,nums.length-1);\n    }\n    public TreeNode buildTree(int[]nums,int left,int right){\n        if(left>right){\n            return null;\n        }\n        int mid = (left+right)>>>1;\n        TreeNode root = new TreeNode(nums[mid]);\n        root.left = buildTree(nums,left,mid-1);\n        root.right = buildTree(nums,mid+1,right);\n        return root;\n    }\n}",
+  "schemaVersion": 1,
+  "aliases": [
+    "108",
+    "108. 将有序数组转换为二叉搜索树",
+    "Convert Sorted Array to Binary Search Tree",
+    "convert-sorted-array-to-binary-search-tree",
+    "将有序数组转换为二叉搜索树"
+  ],
+  "retrievedAt": 1782841588
+}

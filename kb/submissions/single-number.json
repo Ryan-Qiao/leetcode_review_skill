@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "slug": "single-number",
+  "frontendId": "136",
+  "title": "Single Number",
+  "titleCn": "只出现一次的数字",
+  "difficulty": "EASY",
+  "aliases": [
+    "136",
+    "136. 只出现一次的数字",
+    "Single Number",
+    "single-number",
+    "只出现一次的数字"
+  ],
+  "source": "user_submission",
+  "sourceUrl": "https://leetcode.cn/problems/single-number/submissions/685418656",
+  "submissionId": "685418656",
+  "status": "通过",
+  "language": "Java",
+  "runtime": "1 ms",
+  "memory": "46.29 MB",
+  "submittedAt": "2025.12.17 17:35",
+  "retrievedAt": 1782844706,
+  "code": "class Solution {\n    public int singleNumber(int[] nums) {\n        int single = 0;\n        for (int num : nums) {\n            single ^= num;\n        }\n        return single;\n    }\n}",
+  "notes": null
+}

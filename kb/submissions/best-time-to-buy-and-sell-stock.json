@@ -1,0 +1,23 @@
+{
+  "aliases": [
+    "121",
+    "best-time-to-buy-and-sell-stock",
+    "买卖股票的最佳时机"
+  ],
+  "code": "class Solution {\n    public int maxProfit(int[] prices) {\n        int res = 0;                // 记录最大利润\n        int minprice = prices[0];   // 记录遍历到当前位置的【历史最低价格】\n        // 从第2天开始遍历\n        for(int i = 1; i < prices.length; i++){\n            // 1. 计算今天卖出的利润，更新最大利润\n            res = Math.max(res, prices[i] - minprice);\n            // 2. 更新历史最低价\n            minprice = Math.min(minprice, prices[i]);\n        }\n        return res;  // 返回最大利润\n    }\n}",
+  "frontendId": "121",
+  "language": "Java",
+  "memory": "92.77 MB",
+  "notes": null,
+  "retrievedAt": "2026-07-01T01:47:27.884Z",
+  "runtime": "2 ms",
+  "schemaVersion": 1,
+  "slug": "best-time-to-buy-and-sell-stock",
+  "source": "user_submission",
+  "sourceUrl": "https://leetcode.cn/problems/best-time-to-buy-and-sell-stock/submissions/708726700",
+  "status": "通过",
+  "submissionId": "708726700",
+  "submittedAt": "2026.03.18 13:24",
+  "title": "买卖股票的最佳时机",
+  "titleCn": "买卖股票的最佳时机"
+}

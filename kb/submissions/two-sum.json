@@ -1,0 +1,23 @@
+{
+  "slug": "two-sum",
+  "frontendId": "1",
+  "title": "Two Sum",
+  "titleCn": "两数之和",
+  "difficulty": "EASY",
+  "source": "user_submission",
+  "sourceUrl": "https://leetcode.cn/problems/two-sum/submissions/712967293",
+  "submissionId": "712967293",
+  "status": "通过",
+  "language": "Java",
+  "submittedAt": "2026.03.28 21:19",
+  "code": "class Solution {\n    public int[] twoSum(int[] nums, int target) {\n        int[]res = new int[2];\n        Map<Integer,Integer> cnt = new HashMap<>();\n        for(int i = 0;i<nums.length;i++){\n            if(cnt.containsKey(target-nums[i])){\n                res[0] = cnt.get(target-nums[i]);\n                res[1] = i;\n                return res;\n            }else{\n                cnt.put(nums[i],i);\n            }\n        }\n        return res;\n    }\n}",
+  "schemaVersion": 1,
+  "aliases": [
+    "1",
+    "1. 两数之和",
+    "Two Sum",
+    "two-sum",
+    "两数之和"
+  ],
+  "retrievedAt": 1782840465
+}

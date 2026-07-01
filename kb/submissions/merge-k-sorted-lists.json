@@ -1,0 +1,25 @@
+{
+  "aliases": [
+    "23",
+    "23. 合并 K 个升序链表",
+    "Merge k Sorted Lists",
+    "merge-k-sorted-lists",
+    "合并 K 个升序链表"
+  ],
+  "code": "/**\n * Definition for singly-linked list.\n * public class ListNode {\n *     int val;\n *     ListNode next;\n *     ListNode() {}\n *     ListNode(int val) { this.val = val; }\n *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }\n * }\n */\nclass Solution {\n    public ListNode mergeKLists(ListNode[] lists) {\n        int m = lists.length;\n        if (m == 0)\n            return null;\n        for (int step = 1; step < m; step *= 2) {\n            for (int i = 0; i < m - step; i += step * 2) {\n                lists[i] = mergeTwoLists(lists[i], lists[i + step]);\n            }\n        }\n        return lists[0];\n    }\n    private ListNode mergeTwoLists(ListNode head1, ListNode head2) {\n        ListNode dummy = new ListNode(-1);\n        ListNode cur = dummy;\n        while (head1 != null && head2 != null) {\n            if (head1.val <= head2.val) {\n                cur.next = head1;\n                head1 = head1.next;\n            } else {\n                cur.next = head2;\n                head2 = head2.next;\n            }\n            cur = cur.next;\n        }\n        cur.next = head1 != null ? head1 : head2;\n        return dummy.next;\n    }\n}",
+  "difficulty": "HARD",
+  "frontendId": "23",
+  "language": "Java",
+  "memory": "46.02 MB",
+  "retrievedAt": 1782842325,
+  "runtime": "1 ms",
+  "schemaVersion": 1,
+  "slug": "merge-k-sorted-lists",
+  "source": "user_submission",
+  "sourceUrl": "https://leetcode.cn/problems/merge-k-sorted-lists/submissions/692637162",
+  "status": "通过",
+  "submissionId": "692637162",
+  "submittedAt": "2026.01.20 10:56",
+  "title": "Merge k Sorted Lists",
+  "titleCn": "合并 K 个升序链表"
+}

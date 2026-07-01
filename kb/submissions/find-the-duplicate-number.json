@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "slug": "find-the-duplicate-number",
+  "frontendId": "287",
+  "title": "Find the Duplicate Number",
+  "titleCn": "寻找重复数",
+  "difficulty": "MEDIUM",
+  "aliases": [
+    "287",
+    "287. 寻找重复数",
+    "Find the Duplicate Number",
+    "find-the-duplicate-number",
+    "寻找重复数"
+  ],
+  "source": "user_submission",
+  "sourceUrl": "https://leetcode.cn/problems/find-the-duplicate-number/submissions/685578024",
+  "submissionId": "685578024",
+  "status": "通过",
+  "language": "Java",
+  "runtime": "4 ms",
+  "memory": "81.25 MB",
+  "submittedAt": "2025.12.18 13:41",
+  "retrievedAt": 1782849801,
+  "code": "class Solution {\n    public int findDuplicate(int[] nums) {\n        int slow = 0;\n        int fast = 0;\n        while(true){\n            slow = nums[slow];\n            fast = nums[nums[fast]];\n            if(slow==fast){\n                break;\n            }\n        }\n        fast = 0;\n        while(true){\n            slow = nums[slow];\n            fast = nums[fast];\n            if(slow==fast){\n                return slow;\n            }\n        }\n    }\n}",
+  "notes": null
+}

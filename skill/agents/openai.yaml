@@ -1,0 +1,3 @@
+interface:
+  display_name: "Leetcode Review"
+  short_description: "Recover old LeetCode solutions and review them with fallback to official explanations"

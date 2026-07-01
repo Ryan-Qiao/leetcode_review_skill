@@ -1,0 +1,23 @@
+{
+  "aliases": [
+    "11",
+    "11. 盛最多水的容器",
+    "Container With Most Water",
+    "container-with-most-water",
+    "盛最多水的容器"
+  ],
+  "code": "class Solution {\n    public int maxArea(int[] height) {\n        int res = 0;\n        int L = 0;\n        int R = height.length-1;\n        while(L<R){\n            res = Math.max(res,(R-L) * Math.min(height[L],height[R]));\n            if(height[L]<height[R]){\n                L++;\n            }else{\n                R--;\n            }\n        }\n        return res;\n    }\n}",
+  "difficulty": "MEDIUM",
+  "frontendId": "11",
+  "language": "Java",
+  "retrievedAt": 1782840525,
+  "schemaVersion": 1,
+  "slug": "container-with-most-water",
+  "source": "user_submission",
+  "sourceUrl": "https://leetcode.cn/problems/container-with-most-water/submissions/714162671",
+  "status": "通过",
+  "submissionId": "714162671",
+  "submittedAt": "2026.04.01 13:12",
+  "title": "Container With Most Water",
+  "titleCn": "盛最多水的容器"
+}

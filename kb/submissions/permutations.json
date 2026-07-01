@@ -1,0 +1,25 @@
+{
+  "aliases": [
+    "46",
+    "46. 全排列",
+    "Permutations",
+    "permutations",
+    "全排列"
+  ],
+  "code": "class Solution {\n    List<List<Integer>> res = new ArrayList<>();\n    List<Integer> path = new ArrayList<>();\n    public List<List<Integer>> permute(int[] nums) {\n        boolean[]isUsed = new boolean[nums.length];\n        backtracking(nums,isUsed);\n        return res;\n    }\n    private void backtracking(int[]nums,boolean[]isUsed){\n        if(path.size()==nums.length){\n            res.add(new ArrayList<>(path));\n            return;\n        }\n        for(int i = 0;i<nums.length;i++){\n            if(isUsed[i]==true){\n                continue;\n            }\n            isUsed[i] = true;\n            path.add(nums[i]);\n            backtracking(nums,isUsed);\n            path.remove(path.size()-1);\n            isUsed[i] = false;\n        }\n    }\n}",
+  "difficulty": "MEDIUM",
+  "frontendId": "46",
+  "language": "Java",
+  "memory": "44.62 MB",
+  "retrievedAt": 1782842371,
+  "runtime": "1 ms",
+  "schemaVersion": 1,
+  "slug": "permutations",
+  "source": "user_submission",
+  "sourceUrl": "https://leetcode.cn/problems/permutations/submissions/715459637",
+  "status": "通过",
+  "submissionId": "715459637",
+  "submittedAt": "2026.04.06 00:06",
+  "title": "Permutations",
+  "titleCn": "全排列"
+}

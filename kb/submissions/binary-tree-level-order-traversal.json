@@ -1,0 +1,23 @@
+{
+  "slug": "binary-tree-level-order-traversal",
+  "frontendId": "102",
+  "title": "Binary Tree Level Order Traversal",
+  "titleCn": "二叉树的层序遍历",
+  "difficulty": "MEDIUM",
+  "source": "user_submission",
+  "sourceUrl": "https://leetcode.cn/problems/binary-tree-level-order-traversal/submissions/713928275",
+  "submissionId": "713928275",
+  "status": "通过",
+  "language": "Java",
+  "submittedAt": "2026.03.31 18:12",
+  "code": "/**\n * Definition for a binary tree node.\n * public class TreeNode {\n *     int val;\n *     TreeNode left;\n *     TreeNode right;\n *     TreeNode() {}\n *     TreeNode(int val) { this.val = val; }\n *     TreeNode(int val, TreeNode left, TreeNode right) {\n *         this.val = val;\n *         this.left = left;\n *         this.right = right;\n *     }\n * }\n */\nclass Solution {\n    public List<List<Integer>> levelOrder(TreeNode root) {\n        List<List<Integer>> res = new ArrayList<>();\n        Deque<TreeNode> queue = new ArrayDeque<>();\n        if (root != null)\n            queue.add(root);\n        while (!queue.isEmpty()) {\n            int n = queue.size();\n            List<Integer> item = new ArrayList<>();\n            while (n-- > 0) {\n                TreeNode node = queue.poll();\n                item.add(node.val);\n                if (node.left != null)\n                    queue.add(node.left);\n                if (node.right != null)\n                    queue.add(node.right);\n            }\n            res.add(item);\n        }\n        return res;\n    }\n}",
+  "schemaVersion": 1,
+  "aliases": [
+    "102",
+    "102. 二叉树的层序遍历",
+    "Binary Tree Level Order Traversal",
+    "binary-tree-level-order-traversal",
+    "二叉树的层序遍历"
+  ],
+  "retrievedAt": 1782840845
+}

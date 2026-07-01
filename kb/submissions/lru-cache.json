@@ -1,0 +1,25 @@
+{
+  "aliases": [
+    "146",
+    "146. LRU 缓存",
+    "LRU Cache",
+    "LRU 缓存",
+    "lru-cache"
+  ],
+  "code": "class LRUCache {\n    class DLinkedNode{\n        int key;\n        int val;\n        DLinkedNode pre;\n        DLinkedNode next;\n        DLinkedNode(){}\n        DLinkedNode(int key, int val){\n            this.key = key;\n            this.val = val;\n        }\n    }\n    DLinkedNode head;\n    DLinkedNode tail;\n    int size = 0;\n    int capacity;\n    Map<Integer,DLinkedNode> cache = new HashMap<>();\n    public LRUCache(int capacity) {\n        this.capacity = capacity;\n        head = new DLinkedNode();\n        tail = new DLinkedNode();\n        head.next = tail;\n        tail.pre = head;\n    }\n    public int get(int key) {\n        DLinkedNode node = cache.get(key);\n        if(node==null){\n            return -1;\n        }else{\n            removeNode(node);\n            addToHead(node);\n            return node.val;\n        }\n    }\n    public void put(int key, int value) {\n        DLinkedNode node = cache.get(key);\n        if(node==null){\n            size++;\n            if(size>capacity){\n                size--;\n                cache.remove(tail.pre.key);\n                removeNode(tail.pre);\n            }\n            node = new DLinkedNode(key,value);\n            addToHead(node);\n            cache.put(key,node);\n        }else{\n            node.val = value;\n            removeNode(node);\n            addToHead(node);\n        }\n    }\n    public void removeNode(DLinkedNode node){\n        node.pre.next = node.next;\n        node.next.pre = node.pre;\n    }\n    public void addToHead(DLinkedNode node){\n        node.next = head.next;\n        node.next.pre = node;\n        node.pre = head;\n        head.next = node;\n    }\n}\n/**\n * Your LRUCache object will be instantiated and called as such:\n * LRUCache obj = new LRUCache(capacity);\n * int param_1 = obj.get(key);\n * obj.put(key,value);\n */",
+  "difficulty": "MEDIUM",
+  "frontendId": "146",
+  "language": "Java",
+  "memory": "130.13 MB",
+  "retrievedAt": 1782841537,
+  "runtime": "47 ms",
+  "schemaVersion": 1,
+  "slug": "lru-cache",
+  "source": "user_submission",
+  "sourceUrl": "https://leetcode.cn/problems/lru-cache/submissions/713920006",
+  "status": "通过",
+  "submissionId": "713920006",
+  "submittedAt": "2026.03.31 17:44",
+  "title": "LRU Cache",
+  "titleCn": "LRU 缓存"
+}

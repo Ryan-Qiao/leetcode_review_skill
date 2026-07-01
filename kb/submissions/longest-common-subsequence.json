@@ -1,0 +1,25 @@
+{
+  "slug": "longest-common-subsequence",
+  "frontendId": "1143",
+  "title": "Longest Common Subsequence",
+  "titleCn": "最长公共子序列",
+  "difficulty": "MEDIUM",
+  "source": "user_submission",
+  "sourceUrl": "https://leetcode.cn/problems/longest-common-subsequence/submissions/709838284",
+  "submissionId": "709838284",
+  "status": "通过",
+  "language": "Java",
+  "runtime": "14 ms",
+  "memory": "53.01 MB",
+  "submittedAt": "2026.03.20 19:24",
+  "code": "class Solution {\n    public int longestCommonSubsequence(String text1, String text2) {\n        char[]arr1 = text1.toCharArray();\n        char[]arr2 = text2.toCharArray();\n        int[][]dp = new int[text1.length()+1][text2.length()+1];\n        for(int i = 1;i<=text1.length();i++){\n            for(int j = 1;j<=text2.length();j++){\n                if(arr1[i-1]==arr2[j-1]){\n                    dp[i][j] = Math.max(dp[i][j],dp[i-1][j-1]+1);\n                }else{\n                    dp[i][j] = Math.max(dp[i-1][j],dp[i][j-1]);\n                }\n            }\n        }\n        return dp[text1.length()][text2.length()];\n    }\n}",
+  "schemaVersion": 1,
+  "aliases": [
+    "1143",
+    "1143. 最长公共子序列",
+    "Longest Common Subsequence",
+    "longest-common-subsequence",
+    "最长公共子序列"
+  ],
+  "retrievedAt": 1782841741
+}

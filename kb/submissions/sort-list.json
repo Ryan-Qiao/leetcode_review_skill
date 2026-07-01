@@ -1,0 +1,23 @@
+{
+  "slug": "sort-list",
+  "frontendId": "148",
+  "title": "Sort List",
+  "titleCn": "排序链表",
+  "difficulty": "MEDIUM",
+  "source": "user_submission",
+  "sourceUrl": "https://leetcode.cn/problems/sort-list/submissions/712017527",
+  "submissionId": "712017527",
+  "status": "通过",
+  "language": "Java",
+  "submittedAt": "2026.03.25 22:59",
+  "code": "/**\n * Definition for singly-linked list.\n * public class ListNode {\n *     int val;\n *     ListNode next;\n *     ListNode() {}\n *     ListNode(int val) { this.val = val; }\n *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }\n * }\n */\nclass Solution {\n    public ListNode sortList(ListNode head) {\n        if(head==null || head.next==null)\n        return head;\n        ListNode mid = findMid(head);\n        ListNode left = sortList(head);\n        ListNode right = sortList(mid);\n        ListNode res = mergeTwoLists(left,right);\n        return res;\n    }\n    public ListNode findMid(ListNode head){\n        ListNode slow = head;\n        ListNode pre = head;\n        ListNode fast = head;\n        while(fast!=null && fast.next!=null){\n            pre = slow;\n            slow = slow.next;\n            fast = fast.next.next;\n        }\n        pre.next = null;\n        return slow;\n    }\n    public ListNode mergeTwoLists(ListNode list1,ListNode list2){\n        ListNode dummy = new ListNode(-1);\n        ListNode cur = dummy;\n        while(list1!=null && list2!=null){\n            if(list1.val<list2.val){\n                cur.next = list1;\n                list1 = list1.next;\n            }else{\n                cur.next = list2;\n                list2 = list2.next;\n            }\n            cur = cur.next;\n        }\n        cur.next = list1!=null?list1:list2;\n        return dummy.next;\n    }\n}",
+  "schemaVersion": 1,
+  "aliases": [
+    "148",
+    "148. 排序链表",
+    "Sort List",
+    "sort-list",
+    "排序链表"
+  ],
+  "retrievedAt": 1782840785
+}

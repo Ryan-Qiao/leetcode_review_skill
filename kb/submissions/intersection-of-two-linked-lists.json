@@ -1,0 +1,23 @@
+{
+  "slug": "intersection-of-two-linked-lists",
+  "frontendId": "160",
+  "title": "Intersection of Two Linked Lists",
+  "titleCn": "相交链表",
+  "difficulty": "EASY",
+  "source": "user_submission",
+  "sourceUrl": "https://leetcode.cn/problems/intersection-of-two-linked-lists/submissions/713210918",
+  "submissionId": "713210918",
+  "status": "通过",
+  "language": null,
+  "submittedAt": null,
+  "code": "public class Solution {\n    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {\n        /**\n        定义两个指针, 第一轮让两个到达末尾的节点指向另一个链表的头部, 最后如果相遇则为交点(在第一轮移动中恰好抹除了长度差)\n        两个指针等于移动了相同的距离, 有交点就返回, 无交点就是各走了两条指针的长度\n        **/\n        if(headA == null || headB == null) return null;\n        ListNode pA = headA, pB = headB;\n        // 在这里第一轮体现在pA和pB第一次到达尾部会移向另一链表的表头, 而第二轮体现在如果pA或pB相交就返回交点, 不相交最后就是null==null\n        while(pA != pB) {\n            pA = pA == null ? headB : pA.next;\n            pB = pB == null ? headA : pB.next;\n        }\n        return pA;\n    }\n}",
+  "schemaVersion": 1,
+  "aliases": [
+    "160",
+    "160. 相交链表",
+    "Intersection of Two Linked Lists",
+    "intersection-of-two-linked-lists",
+    "相交链表"
+  ],
+  "retrievedAt": 1782840691
+}

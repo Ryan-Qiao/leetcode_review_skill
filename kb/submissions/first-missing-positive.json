@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "slug": "first-missing-positive",
+  "frontendId": "41",
+  "title": "First Missing Positive",
+  "titleCn": "缺失的第一个正数",
+  "difficulty": "HARD",
+  "aliases": [
+    "41",
+    "41. 缺失的第一个正数",
+    "First Missing Positive",
+    "first-missing-positive",
+    "缺失的第一个正数"
+  ],
+  "source": "user_submission",
+  "sourceUrl": "https://leetcode.cn/problems/first-missing-positive/submissions/713101097",
+  "submissionId": "713101097",
+  "status": "通过",
+  "language": "Java",
+  "runtime": "1 ms",
+  "memory": "69.90 MB",
+  "submittedAt": "2026.03.29 12:35",
+  "retrievedAt": 1782842933,
+  "code": "class Solution {\n    public int firstMissingPositive(int[] nums) {\n        for(int i =0;i<nums.length;i++){\n            while(nums[i]>0 && nums[i]<=nums.length && nums[nums[i]-1]!=nums[i]){\n                swap(nums,nums[i]-1,i);\n            }\n        }\n        for(int i = 0;i<nums.length;i++){\n            if(nums[i]!=i+1){\n                return i+1;\n            }\n        }\n        return nums.length+1;\n    }\n    public void swap(int[]nums,int a,int b){\n        int temp = nums[a];\n        nums[a] = nums[b];\n        nums[b] = temp;\n    }\n}",
+  "notes": null
+}

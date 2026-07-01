@@ -1,0 +1,25 @@
+{
+  "aliases": [
+    "33",
+    "33. 搜索旋转排序数组",
+    "Search in Rotated Sorted Array",
+    "search-in-rotated-sorted-array",
+    "搜索旋转排序数组"
+  ],
+  "code": "class Solution {\n    public int search(int[] nums, int target) {\n        int mark = 0;\n        for(int i = 0;i<nums.length;i++){\n            if(i>0 && nums[i-1]>nums[i]){\n                mark = i-1;\n            }\n        }\n        int res1 = biSearch(nums,0,mark,target);\n        if(res1!=mark+1 && nums[res1]==target)\n        return res1;\n        int res2 = biSearch(nums,mark+1,nums.length-1,target);\n        if(res2 !=nums.length && nums[res2]==target)\n        return res2;\n        return -1;\n    }\n    public int biSearch(int[]nums,int left,int right,int target){\n        int L = left;\n        int R = right;\n        while(L<=R){\n            int mid = L + (R-L)/2;\n            if(nums[mid]<target)\n            L = mid+1;\n            else\n            R = mid-1;\n        }\n        return L;\n    }\n}",
+  "difficulty": "MEDIUM",
+  "frontendId": "33",
+  "language": "Java",
+  "memory": "43.06 MB",
+  "retrievedAt": 1782841204,
+  "runtime": "1 ms",
+  "schemaVersion": 1,
+  "slug": "search-in-rotated-sorted-array",
+  "source": "user_submission",
+  "sourceUrl": "https://leetcode.cn/problems/search-in-rotated-sorted-array/submissions/705255351",
+  "status": "通过",
+  "submissionId": "705255351",
+  "submittedAt": "2026.03.10 19:20",
+  "title": "Search in Rotated Sorted Array",
+  "titleCn": "搜索旋转排序数组"
+}

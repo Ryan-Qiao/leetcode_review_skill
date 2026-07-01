@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "slug": "pascals-triangle",
+  "frontendId": "118",
+  "title": "Pascal's Triangle",
+  "titleCn": "杨辉三角",
+  "difficulty": "EASY",
+  "aliases": [
+    "118",
+    "118. 杨辉三角",
+    "Pascal's Triangle",
+    "pascals-triangle",
+    "杨辉三角"
+  ],
+  "source": "user_submission",
+  "sourceUrl": "https://leetcode.cn/problems/pascals-triangle/submissions/694873159",
+  "submissionId": "694873159",
+  "status": "通过",
+  "language": "Java",
+  "runtime": "1 ms",
+  "memory": "43.00 MB",
+  "submittedAt": "2026.01.29 09:46",
+  "retrievedAt": 1782849691,
+  "code": "class Solution {\n    public List<List<Integer>> generate(int numRows) {\n        List<List<Integer>> res = new ArrayList<>();\n        int[][]dp = new int[numRows][numRows];\n        dp[0][0] = 1;\n        for(int i = 0;i<numRows;i++){\n            List<Integer> item = new ArrayList<>();\n            for(int j = 0;j<=i;j++){\n                if(j==0||j==i){\n                    dp[i][j] = 1;\n                }else{\n                    dp[i][j] = dp[i-1][j]+dp[i-1][j-1];\n                }\n                item.add(dp[i][j]);\n            }\n            res.add(item);\n        }\n        return res;\n    }\n}",
+  "notes": null
+}

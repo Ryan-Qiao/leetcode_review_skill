@@ -1,0 +1,25 @@
+{
+  "slug": "find-all-anagrams-in-a-string",
+  "frontendId": "438",
+  "title": "Find All Anagrams in a String",
+  "titleCn": "找到字符串中所有字母异位词",
+  "difficulty": "MEDIUM",
+  "source": "user_submission",
+  "sourceUrl": "https://leetcode.cn/problems/find-all-anagrams-in-a-string/submissions/715439879",
+  "submissionId": "715439879",
+  "status": "通过",
+  "language": "Java",
+  "runtime": "11 ms",
+  "memory": "46.13 MB",
+  "submittedAt": "2026.04.05 22:41",
+  "code": "class Solution {\n    public List<Integer> findAnagrams(String s, String p) {\n        List<Integer> res = new ArrayList<>();\n        int[]cntS = new int[26];\n        int[]cntP = new int[26];\n        if(p.length()>s.length()){\n            return res;\n        }\n        for(int i = 0;i<p.length();i++){\n            cntP[p.charAt(i)-'a'] +=1;\n        }\n        for(int i = 0;i<p.length();i++){\n            cntS[s.charAt(i)-'a'] +=1;\n        }\n        if(Arrays.equals(cntP,cntS)){\n            res.add(0);\n        }\n        for(int i = p.length();i<s.length();i++){\n            cntS[s.charAt(i-p.length())-'a']--;\n            cntS[s.charAt(i)-'a']++;\n            if(Arrays.equals(cntP,cntS)){\n                res.add(i-p.length()+1);\n            }\n        }\n        return res;\n    }\n}",
+  "schemaVersion": 1,
+  "aliases": [
+    "438",
+    "438. 找到字符串中所有字母异位词",
+    "Find All Anagrams in a String",
+    "find-all-anagrams-in-a-string",
+    "找到字符串中所有字母异位词"
+  ],
+  "retrievedAt": 1782841411
+}

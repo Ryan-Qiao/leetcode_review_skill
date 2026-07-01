@@ -1,0 +1,23 @@
+{
+  "aliases": [
+    "70",
+    "climbing-stairs",
+    "爬楼梯"
+  ],
+  "code": "class Solution {\n    public int climbStairs(int n) {\n        int[]dp = new int[n+1];\n        dp[0] = 1;\n        dp[1] = 1;\n        for(int i = 2;i<=n;i++){\n            dp[i] = dp[i-2]+dp[i-1];\n        }\n        return dp[n];\n    }\n}",
+  "frontendId": "70",
+  "language": "Java",
+  "memory": "41.58 MB",
+  "notes": "Latest readable accepted submission; newer accepted details were visible in the list but returned empty detail data during retrieval. Selected row: 12 通过 2026.03.30 Java 0 ms 41.6 MB",
+  "retrievedAt": "2026-07-01T01:48:43.416Z",
+  "runtime": "0 ms",
+  "schemaVersion": 1,
+  "slug": "climbing-stairs",
+  "source": "user_submission",
+  "sourceUrl": "https://leetcode.cn/problems/climbing-stairs/submissions/713664877",
+  "status": "通过",
+  "submissionId": "713664877",
+  "submittedAt": "2026.03.30 22:24",
+  "title": "爬楼梯",
+  "titleCn": "爬楼梯"
+}

@@ -1,0 +1,25 @@
+{
+  "aliases": [
+    "15",
+    "15. 三数之和",
+    "3Sum",
+    "3sum",
+    "三数之和"
+  ],
+  "code": "class Solution {\n    public List<List<Integer>> threeSum(int[] nums) {\n        List<List<Integer>> res = new ArrayList<>();\n        Arrays.sort(nums);\n        for(int i = 0;i<nums.length;i++){\n            if(i>0 && nums[i-1]==nums[i])\n            continue;\n            int L = i+1;\n            int R = nums.length-1;\n            while(L<R){\n                int sum = nums[i] + nums[L] + nums[R];\n                if(L<R && sum<0){\n                    L++;\n                }else if(L<R && sum>0){\n                    R--;\n                }\n                else if(L<R && sum==0){\n                    res.add(Arrays.asList(nums[i],nums[L],nums[R]));\n                    while(L<R && nums[L+1]==nums[L])\n                    L++;\n                    while(L<R && nums[R-1]==nums[R])\n                    R--;\n                    L++;\n                    R--;\n                }\n            }\n        }\n        return res;\n    }\n}",
+  "difficulty": "MEDIUM",
+  "frontendId": "15",
+  "language": "Java",
+  "memory": "58.18 MB",
+  "retrievedAt": 1782840946,
+  "runtime": "41 ms",
+  "schemaVersion": 1,
+  "slug": "3sum",
+  "source": "user_submission",
+  "sourceUrl": "https://leetcode.cn/problems/3sum/submissions/727211021",
+  "status": "通过",
+  "submissionId": "727211021",
+  "submittedAt": "2026.05.25 23:22",
+  "title": "3Sum",
+  "titleCn": "三数之和"
+}

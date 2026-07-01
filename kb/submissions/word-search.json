@@ -1,0 +1,25 @@
+{
+  "aliases": [
+    "79",
+    "79. 单词搜索",
+    "Word Search",
+    "word-search",
+    "单词搜索"
+  ],
+  "code": "class Solution {\n    int[][] DIRS = new int[][] { { -1, 0 }, { 1, 0 }, { 0, 1 }, { 0, -1 } };\n    public boolean exist(char[][] board, String word) {\n        for (int i = 0; i < board.length; i++) {\n            for (int j = 0; j < board[0].length; j++) {\n                if (dfs(board, i, j, 0, word)) {\n                    return true;\n                }\n            }\n        }\n        return false;\n    }\n    public boolean dfs(char[][] board, int x, int y, int k, String word) {\n        if (x < 0 || x >= board.length || y < 0 || y >= board[0].length) {\n            return false;\n        }\n        if (board[x][y] != word.charAt(k)) {\n            return false;\n        }\n        if (k == word.length() - 1)\n            return true;\n        char Temp = board[x][y];\n        board[x][y] = '0';\n        for (int[] dir : DIRS) {\n            if(dfs(board, x + dir[0], y + dir[1], k + 1, word)){\n                return true;\n            }\n        }\n        board[x][y] = Temp;\n        return false;\n    }\n}",
+  "difficulty": "MEDIUM",
+  "frontendId": "79",
+  "language": "Java",
+  "memory": "42.15 MB",
+  "retrievedAt": 1782841150,
+  "runtime": "209 ms",
+  "schemaVersion": 1,
+  "slug": "word-search",
+  "source": "user_submission",
+  "sourceUrl": "https://leetcode.cn/problems/word-search/submissions/714195612",
+  "status": "通过",
+  "submissionId": "714195612",
+  "submittedAt": "2026.04.01 14:56",
+  "title": "Word Search",
+  "titleCn": "单词搜索"
+}

@@ -1,0 +1,23 @@
+{
+  "aliases": [
+    "138",
+    "138. 随机链表的复制",
+    "Copy List with Random Pointer",
+    "copy-list-with-random-pointer",
+    "随机链表的复制"
+  ],
+  "code": "/*\n// Definition for a Node.\nclass Node {\n    int val;\n    Node next;\n    Node random;\n    public Node(int val) {\n        this.val = val;\n        this.next = null;\n        this.random = null;\n    }\n}\n*/\nclass Solution {\n    public Node copyRandomList(Node head) {\n        if(head==null){\n            return head;\n        }\n        Node cur = head;\n        while(cur!=null){\n            Node node = new Node(cur.val);\n            node.next = cur.next;\n            cur.next = node;\n            cur = cur.next.next;\n        }\n        cur = head;\n        while(cur!=null){\n            if(cur.random!=null){\n                cur.next.random = cur.random.next;\n            }\n            cur = cur.next.next;\n        }\n        Node pre = head;\n        cur = head.next;\n        Node res = head.next;\n        while(cur.next!=null){\n            pre.next = pre.next.next;\n            cur.next = cur.next.next;\n            pre = pre.next;\n            cur = cur.next;\n        }\n        pre.next = null;\n        return res;\n    }\n}",
+  "difficulty": "MEDIUM",
+  "frontendId": "138",
+  "language": "Java",
+  "retrievedAt": 1782840775,
+  "schemaVersion": 1,
+  "slug": "copy-list-with-random-pointer",
+  "source": "user_submission",
+  "sourceUrl": "https://leetcode.cn/problems/copy-list-with-random-pointer/submissions/692616607",
+  "status": "通过",
+  "submissionId": "692616607",
+  "submittedAt": "2026.01.20 09:36",
+  "title": "Copy List with Random Pointer",
+  "titleCn": "随机链表的复制"
+}

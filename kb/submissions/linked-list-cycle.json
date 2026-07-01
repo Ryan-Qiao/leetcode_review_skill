@@ -1,0 +1,23 @@
+{
+  "slug": "linked-list-cycle",
+  "frontendId": "141",
+  "title": "Linked List Cycle",
+  "titleCn": "环形链表",
+  "difficulty": "EASY",
+  "source": "user_submission",
+  "sourceUrl": "https://leetcode.cn/problems/linked-list-cycle/submissions/713126998",
+  "submissionId": "713126998",
+  "status": "通过",
+  "language": "Java",
+  "submittedAt": "2026.03.29 14:08",
+  "code": "/**\n * Definition for singly-linked list.\n * class ListNode {\n *     int val;\n *     ListNode next;\n *     ListNode(int x) {\n *         val = x;\n *         next = null;\n *     }\n * }\n */\npublic class Solution {\n    public boolean hasCycle(ListNode head) {\n        ListNode slow = head;\n        ListNode fast = head;\n        while(fast!=null && fast.next!=null){\n            slow=slow.next;\n            fast = fast.next.next;\n            if(slow==fast)\n            return true;\n        }\n        return false;\n    }\n}",
+  "schemaVersion": 1,
+  "aliases": [
+    "141",
+    "141. 环形链表",
+    "Linked List Cycle",
+    "linked-list-cycle",
+    "环形链表"
+  ],
+  "retrievedAt": 1782840712
+}

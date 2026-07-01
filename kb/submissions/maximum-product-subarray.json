@@ -1,0 +1,25 @@
+{
+  "slug": "maximum-product-subarray",
+  "frontendId": "152",
+  "title": "Maximum Product Subarray",
+  "titleCn": "乘积最大子数组",
+  "difficulty": "MEDIUM",
+  "source": "user_submission",
+  "sourceUrl": "https://leetcode.cn/problems/maximum-product-subarray/submissions/695845997",
+  "submissionId": "695845997",
+  "status": "通过",
+  "language": "Java",
+  "runtime": "2 ms",
+  "memory": "46.69 MB",
+  "submittedAt": "2026.02.02 14:47",
+  "code": "class Solution {\n    public int maxProduct(int[] nums) {\n        int max = nums[0];\n        int min = nums[0];\n        int res = nums[0];\n        for(int i = 1;i<nums.length;i++){\n            int premax = max;\n            int premin = min;\n            max = Math.max(nums[i],Math.max(premax*nums[i],premin*nums[i]));\n            min = Math.min(nums[i],Math.min(premax*nums[i],premin*nums[i]));\n            res = Math.max(res,max);\n        }\n        return res;\n    }\n}",
+  "schemaVersion": 1,
+  "aliases": [
+    "152",
+    "152. 乘积最大子数组",
+    "Maximum Product Subarray",
+    "maximum-product-subarray",
+    "乘积最大子数组"
+  ],
+  "retrievedAt": 1782841681
+}

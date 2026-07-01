@@ -1,0 +1,23 @@
+{
+  "aliases": [
+    "763",
+    "partition-labels",
+    "划分字母区间"
+  ],
+  "code": "class Solution {\n    public List<Integer> partitionLabels(String s) {\n        List<Integer> res = new ArrayList<>();\n        int[]lastIndex = new int[26];\n        for(int i = 0;i<s.length();i++){\n            lastIndex[s.charAt(i)-'a'] = i;\n        }\n        int start = 0;\n        int end = 0;\n        for(int i = 0;i<s.length();i++){\n            end = Math.max(end,lastIndex[s.charAt(i)-'a']);\n            if(end==i){\n                res.add(end-start+1);\n                start = i+1;\n            }\n        }\n        return res;\n    }\n}",
+  "frontendId": "763",
+  "language": "Java",
+  "memory": "42.80 MB",
+  "notes": null,
+  "retrievedAt": "2026-07-01T01:47:38.884Z",
+  "runtime": "4 ms",
+  "schemaVersion": 1,
+  "slug": "partition-labels",
+  "source": "user_submission",
+  "sourceUrl": "https://leetcode.cn/problems/partition-labels/submissions/713659948",
+  "status": "通过",
+  "submissionId": "713659948",
+  "submittedAt": "2026.03.30 22:12",
+  "title": "划分字母区间",
+  "titleCn": "划分字母区间"
+}

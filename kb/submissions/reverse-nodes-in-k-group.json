@@ -1,0 +1,25 @@
+{
+  "aliases": [
+    "25",
+    "25. K 个一组翻转链表",
+    "K 个一组翻转链表",
+    "Reverse Nodes in k-Group",
+    "reverse-nodes-in-k-group"
+  ],
+  "code": "/**\n * Definition for singly-linked list.\n * public class ListNode {\n *     int val;\n *     ListNode next;\n *     ListNode() {}\n *     ListNode(int val) { this.val = val; }\n *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }\n * }\n */\nclass Solution {\n    public ListNode reverseKGroup(ListNode head, int k) {\n        ListNode dummy = new ListNode(-1);\n        dummy.next = head;\n        ListNode pre = dummy;\n        ListNode next;\n        ListNode start = head;\n        ListNode end = dummy;\n        while(end!=null){\n            for(int i = 0;i<k && end!=null;i++){\n                end = end.next;\n            }\n            if(end==null)\n            break;\n            start = pre.next;\n            next = end.next;\n            end.next = null;\n            end = reverseList(start);\n            pre.next = end;\n            start.next = next;\n            pre = start;\n            end = start;\n        }\n        return dummy.next;\n    }\n    public ListNode reverseList(ListNode head){\n        ListNode cur = head;\n        ListNode pre = null;\n        while(cur!=null){\n            ListNode temp = cur.next;\n            cur.next = pre;\n            pre = cur;\n            cur = temp;\n        }\n        return pre;\n    }\n}",
+  "difficulty": "HARD",
+  "frontendId": "25",
+  "language": "Java",
+  "memory": "45.77 MB",
+  "retrievedAt": 1782841512,
+  "runtime": "1 ms",
+  "schemaVersion": 1,
+  "slug": "reverse-nodes-in-k-group",
+  "source": "user_submission",
+  "sourceUrl": "https://leetcode.cn/problems/reverse-nodes-in-k-group/submissions/712002033",
+  "status": "通过",
+  "submissionId": "712002033",
+  "submittedAt": "2026.03.25 22:23",
+  "title": "Reverse Nodes in k-Group",
+  "titleCn": "K 个一组翻转链表"
+}

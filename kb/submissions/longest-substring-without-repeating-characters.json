@@ -1,0 +1,24 @@
+{
+  "aliases": [
+    "3",
+    "3. 无重复字符的最长子串",
+    "longest-substring-without-repeating-characters",
+    "无重复字符的最长子串"
+  ],
+  "code": "class Solution {\n    public int lengthOfLongestSubstring(String s) {\n        Map<Character, Integer> cnt = new HashMap<>();\n        int res = 0;\n        int start = 0;\n        for (int end = 0; end < s.length(); end++) {\n            if (cnt.containsKey(s.charAt(end))) {\n                start = Math.max(start, cnt.get(s.charAt(end)));\n                cnt.put(s.charAt(end), end + 1);\n            } else {\n                cnt.put(s.charAt(end), end + 1);\n            }\n            if (end - start +1> res)\n                res = end - start + 1;\n        }\n        return res;\n\n    }\n}",
+  "frontendId": "3",
+  "language": "Java",
+  "memory": "44.9 MB",
+  "notes": null,
+  "retrievedAt": 1782840219,
+  "runtime": "5 ms",
+  "schemaVersion": 1,
+  "slug": "longest-substring-without-repeating-characters",
+  "source": "user_submission",
+  "sourceUrl": "https://leetcode.cn/problems/longest-substring-without-repeating-characters/submissions/715083761/",
+  "status": "通过",
+  "submissionId": "715083761",
+  "submittedAt": "2026.04.04 15:44",
+  "title": null,
+  "titleCn": "无重复字符的最长子串"
+}

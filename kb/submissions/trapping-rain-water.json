@@ -1,0 +1,23 @@
+{
+  "slug": "trapping-rain-water",
+  "frontendId": "42",
+  "title": "Trapping Rain Water",
+  "titleCn": "接雨水",
+  "difficulty": "HARD",
+  "source": "user_submission",
+  "sourceUrl": "https://leetcode.cn/problems/trapping-rain-water/submissions/715456692",
+  "submissionId": "715456692",
+  "status": "通过",
+  "language": "Java",
+  "submittedAt": "2026.04.05 23:51",
+  "code": "class Solution {\n    public int trap(int[] height) {\n        int max_left = 0;\n        int L = 1;\n        int R = height.length-2;\n        int max_right = 0;\n        int res = 0;\n        while(L<=R){\n            if(height[L-1]<height[R+1]){\n                max_left = Math.max(max_left,height[L-1]);\n                int min = max_left;\n                if(min>height[L]){\n                    res+=min-height[L];\n                }\n                L++;\n            }else{\n                max_right = Math.max(max_right,height[R+1]);\n                int min = max_right;\n                if(min>height[R]){\n                    res+=min-height[R];\n                }\n                R--;\n            }\n        }\n        return res;\n    }\n}",
+  "schemaVersion": 1,
+  "aliases": [
+    "42",
+    "42. 接雨水",
+    "Trapping Rain Water",
+    "trapping-rain-water",
+    "接雨水"
+  ],
+  "retrievedAt": 1782840540
+}

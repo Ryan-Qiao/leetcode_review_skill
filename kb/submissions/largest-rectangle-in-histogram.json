@@ -1,0 +1,23 @@
+{
+  "aliases": [
+    "84",
+    "largest-rectangle-in-histogram",
+    "柱状图中最大的矩形"
+  ],
+  "code": "class Solution {\n    public int largestRectangleArea(int[] heights) {\n        Stack<Integer> stack = new Stack<>();\n        int ans = 0;\n        for (int i = 0; i < heights.length; i++) {\n            while (!stack.isEmpty() && heights[stack.peek()] > heights[i]) {\n                int index = stack.pop();\n                int left = stack.isEmpty() ? -1 : stack.peek();\n                ans = Math.max(ans, (i - left - 1) * heights[index]);\n            }\n            stack.push(i);\n        }\n        while (!stack.isEmpty() && heights[stack.peek()] > -1) {\n            int index = stack.pop();\n            int left = stack.isEmpty() ? -1 : stack.peek();\n            ans = Math.max(ans, (heights.length - left - 1) * heights[index]);\n        }\n        return ans;\n    }\n}",
+  "frontendId": "84",
+  "language": "Java",
+  "memory": "56.56 MB",
+  "notes": null,
+  "retrievedAt": "2026-07-01T01:47:04.954Z",
+  "runtime": "186 ms",
+  "schemaVersion": 1,
+  "slug": "largest-rectangle-in-histogram",
+  "source": "user_submission",
+  "sourceUrl": "https://leetcode.cn/problems/largest-rectangle-in-histogram/submissions/613058991",
+  "status": "通过",
+  "submissionId": "613058991",
+  "submittedAt": "2025.03.20 07:40",
+  "title": "柱状图中最大的矩形",
+  "titleCn": "柱状图中最大的矩形"
+}

@@ -1,0 +1,23 @@
+{
+  "aliases": [
+    "55",
+    "jump-game",
+    "跳跃游戏"
+  ],
+  "code": "class Solution {\n    public boolean canJump(int[] nums) {\n        int farStep = 0;\n        for (int i = 0; i < nums.length && i <= farStep; i++) {\n            farStep = Math.max(farStep, nums[i] + i);\n        }\n        if (farStep >= nums.length-1)\n            return true;\n        return false;\n    }\n}",
+  "frontendId": "55",
+  "language": "Java",
+  "memory": "47.36 MB",
+  "notes": null,
+  "retrievedAt": "2026-07-01T01:47:35.271Z",
+  "runtime": "2 ms",
+  "schemaVersion": 1,
+  "slug": "jump-game",
+  "source": "user_submission",
+  "sourceUrl": "https://leetcode.cn/problems/jump-game/submissions/694689190",
+  "status": "通过",
+  "submissionId": "694689190",
+  "submittedAt": "2026.01.28 15:05",
+  "title": "跳跃游戏",
+  "titleCn": "跳跃游戏"
+}

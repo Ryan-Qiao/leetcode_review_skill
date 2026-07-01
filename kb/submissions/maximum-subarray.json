@@ -1,0 +1,25 @@
+{
+  "slug": "maximum-subarray",
+  "frontendId": "53",
+  "title": "Maximum Subarray",
+  "titleCn": "最大子数组和",
+  "difficulty": "MEDIUM",
+  "source": "user_submission",
+  "sourceUrl": "https://leetcode.cn/problems/maximum-subarray/submissions/711871816",
+  "submissionId": "711871816",
+  "status": "通过",
+  "language": "Java",
+  "runtime": "1 ms",
+  "memory": "75.74 MB",
+  "submittedAt": "2026.03.25 17:21",
+  "code": "class Solution {\n    public int maxSubArray(int[] nums) {\n        int sum = 0;\n        int res = Integer.MIN_VALUE;\n        for(int i = 0;i<nums.length;i++){\n            sum+=nums[i];\n            res = Math.max(res,sum);\n            if(sum<0)\n            sum=0;\n        }\n        return res;\n    }\n}",
+  "schemaVersion": 1,
+  "aliases": [
+    "53",
+    "53. 最大子数组和",
+    "Maximum Subarray",
+    "maximum-subarray",
+    "最大子数组和"
+  ],
+  "retrievedAt": 1782841433
+}

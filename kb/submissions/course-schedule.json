@@ -1,0 +1,25 @@
+{
+  "slug": "course-schedule",
+  "frontendId": "207",
+  "title": "Course Schedule",
+  "titleCn": "课程表",
+  "difficulty": "MEDIUM",
+  "source": "user_submission",
+  "sourceUrl": "https://leetcode.cn/problems/course-schedule/submissions/711159733",
+  "submissionId": "711159733",
+  "status": "通过",
+  "language": "Java",
+  "runtime": "4 ms",
+  "memory": "46.63 MB",
+  "submittedAt": "2026.03.23 22:56",
+  "code": "class Solution {\n    public boolean canFinish(int numCourses, int[][] prerequisites) {\n        List<List<Integer>> adj = new ArrayList<>();\n        for(int i = 0;i<numCourses;i++){\n            adj.add(new ArrayList<>());\n        }\n        for(int[]item:prerequisites){\n            adj.get(item[1]).add(item[0]);\n        }\n        int[]flag = new int[numCourses];\n        for(int i = 0;i<numCourses;i++){\n            if(hasHuan(adj,flag,i)){\n                return false;\n            }\n        }\n        return true;\n    }\n    public boolean hasHuan(List<List<Integer>> adj,int[]flag,int i){\n        if(flag[i]==-1){\n            return false;\n        }\n        if(flag[i]==1){\n            return true;\n        }\n        flag[i]=1;\n        for(int j:adj.get(i)){\n            if(hasHuan(adj,flag,j)){\n                return true;\n            }\n        }\n        flag[i] = -1;\n        return false;\n    }\n}",
+  "schemaVersion": 1,
+  "aliases": [
+    "207",
+    "207. 课程表",
+    "Course Schedule",
+    "course-schedule",
+    "课程表"
+  ],
+  "retrievedAt": 1782841089
+}

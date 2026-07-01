@@ -1,0 +1,25 @@
+{
+  "aliases": [
+    "48",
+    "48. 旋转图像",
+    "Rotate Image",
+    "rotate-image",
+    "旋转图像"
+  ],
+  "code": "class Solution {\n    public void rotate(int[][] matrix) {\n        for(int i = 0;i<matrix.length;i++){\n            for(int j = 0;j<i;j++){\n                int temp = matrix[i][j];\n                matrix[i][j] = matrix[j][i];\n                matrix[j][i] = temp;\n            }\n        }\n        for(int i = 0;i<matrix.length;i++){\n            for(int j = 0;j<matrix[0].length/2;j++){\n                int temp = matrix[i][j];\n                matrix[i][j] = matrix[i][matrix[0].length-j-1];\n                matrix[i][matrix[0].length-j-1] = temp;\n            }\n        }\n    }\n}",
+  "difficulty": "MEDIUM",
+  "frontendId": "48",
+  "language": "Java",
+  "memory": "43.17 MB",
+  "retrievedAt": 1782842308,
+  "runtime": "0 ms",
+  "schemaVersion": 1,
+  "slug": "rotate-image",
+  "source": "user_submission",
+  "sourceUrl": "https://leetcode.cn/problems/rotate-image/submissions/713115773",
+  "status": "通过",
+  "submissionId": "713115773",
+  "submittedAt": "2026.03.29 13:40",
+  "title": "Rotate Image",
+  "titleCn": "旋转图像"
+}

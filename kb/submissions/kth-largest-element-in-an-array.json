@@ -1,0 +1,23 @@
+{
+  "aliases": [
+    "215",
+    "kth-largest-element-in-an-array",
+    "数组中的第K个最大元素"
+  ],
+  "code": "class Solution {\n    public int findKthLargest(int[] nums, int k) {\n        List<Integer> list = new ArrayList<>();\n        for(int num:nums){\n            list.add(num);\n        }\n        return quickSelect(list,k);\n    }\n    public int quickSelect(List<Integer> list,int k){\n        List<Integer> small = new ArrayList<>();\n        List<Integer> equal = new ArrayList<>();\n        List<Integer> big = new ArrayList<>();\n        Random r = new Random();\n        int pivot = list.get(r.nextInt(list.size()));\n        for(int num:list){\n            if(num<pivot){\n                small.add(num);\n            }else if(num>pivot){\n                big.add(num);\n            }else{\n                equal.add(num);\n            }\n        }\n        if(k<=big.size()){\n            return quickSelect(big,k);\n        }else if(k>big.size()+equal.size()){\n            return quickSelect(small,k-big.size()-equal.size());\n        }else{\n            return pivot;\n        }\n    }\n}",
+  "frontendId": "215",
+  "language": "Java",
+  "memory": "80.68 MB",
+  "notes": "Latest readable accepted submission; newer accepted details were visible in the list but returned empty detail data during retrieval. Selected row: 20 通过 2026.03.24 Java 37 ms 80.7 MB",
+  "retrievedAt": "2026-07-01T01:48:40.817Z",
+  "runtime": "37 ms",
+  "schemaVersion": 1,
+  "slug": "kth-largest-element-in-an-array",
+  "source": "user_submission",
+  "sourceUrl": "https://leetcode.cn/problems/kth-largest-element-in-an-array/submissions/711492578",
+  "status": "通过",
+  "submissionId": "711492578",
+  "submittedAt": "2026.03.24 19:27",
+  "title": "数组中的第K个最大元素",
+  "titleCn": "数组中的第K个最大元素"
+}

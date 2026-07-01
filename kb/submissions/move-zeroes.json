@@ -1,0 +1,23 @@
+{
+  "aliases": [
+    "283",
+    "283. 移动零",
+    "Move Zeroes",
+    "move-zeroes",
+    "移动零"
+  ],
+  "code": "class Solution {\n    public void moveZeroes(int[] nums) {\n        int slow = 0;\n        int fast = 0;\n        while (fast < nums.length) {\n            if (nums[fast] != 0) {\n                nums[slow] = nums[fast];\n                slow++;\n            }\n            fast++;\n        }\n        while (slow < nums.length) {\n            nums[slow++] = 0;\n        }\n    }\n}",
+  "difficulty": "EASY",
+  "frontendId": "283",
+  "language": "Java",
+  "retrievedAt": 1782840582,
+  "schemaVersion": 1,
+  "slug": "move-zeroes",
+  "source": "user_submission",
+  "sourceUrl": "https://leetcode.cn/problems/move-zeroes/submissions/714060620",
+  "status": "通过",
+  "submissionId": "714060620",
+  "submittedAt": "2026.03.31 23:53",
+  "title": "Move Zeroes",
+  "titleCn": "移动零"
+}

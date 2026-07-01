@@ -1,0 +1,25 @@
+{
+  "aliases": [
+    "394",
+    "394. 字符串解码",
+    "Decode String",
+    "decode-string",
+    "字符串解码"
+  ],
+  "code": "class Solution {\n    private class Pair{\n        String sb;\n        int k;\n        Pair(){}\n        Pair(String sb,int k){\n            this.sb = sb;\n            this.k = k;\n        }\n    }\n    public String decodeString(String s) {\n        char[]arr = s.toCharArray();\n        Stack<Pair> stack = new Stack<>();\n        StringBuilder res = new StringBuilder();\n        int k = 0;\n        for(int i = 0;i<arr.length;i++){\n            if(Character.isDigit(arr[i])){\n                k = k*10 + arr[i]-'0';\n            }else if(Character.isLetter(arr[i])){\n                res.append(arr[i]);\n            }else if(arr[i]=='['){\n                stack.push(new Pair(res.toString(),k));\n                k = 0;\n                res.setLength(0);\n            }else{\n                Pair item = stack.pop();\n                StringBuilder temp = new StringBuilder(item.sb);\n                for(int j = 0;j<item.k;j++){\n                    temp.append(res);\n                }\n                res = temp;\n            }\n        }\n        return res.toString();\n    }\n}",
+  "difficulty": "MEDIUM",
+  "frontendId": "394",
+  "language": "Java",
+  "memory": "42.31 MB",
+  "retrievedAt": 1782842430,
+  "runtime": "1 ms",
+  "schemaVersion": 1,
+  "slug": "decode-string",
+  "source": "user_submission",
+  "sourceUrl": "https://leetcode.cn/problems/decode-string/submissions/713081006",
+  "status": "通过",
+  "submissionId": "713081006",
+  "submittedAt": "2026.03.29 11:20",
+  "title": "Decode String",
+  "titleCn": "字符串解码"
+}

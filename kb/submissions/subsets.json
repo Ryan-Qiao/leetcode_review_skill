@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "slug": "subsets",
+  "frontendId": "78",
+  "title": "Subsets",
+  "titleCn": "子集",
+  "difficulty": "MEDIUM",
+  "aliases": [
+    "78",
+    "78. 子集",
+    "Subsets",
+    "subsets",
+    "子集"
+  ],
+  "source": "user_submission",
+  "sourceUrl": "https://leetcode.cn/problems/subsets/submissions/713933062",
+  "submissionId": "713933062",
+  "status": "通过",
+  "language": "Java",
+  "runtime": "0 ms",
+  "memory": "43.63 MB",
+  "submittedAt": "2026.03.31 18:30",
+  "retrievedAt": 1782843146,
+  "code": "class Solution {\n    List<List<Integer>> res = new ArrayList<>();\n    List<Integer> path = new ArrayList<>();\n    public List<List<Integer>> subsets(int[] nums) {\n        backtracking(nums,0);\n        return res;\n    }\n    public void backtracking(int[]nums,int startIndex){\n        res.add(new ArrayList<>(path));\n        for(int i = startIndex;i<nums.length;i++){\n            path.add(nums[i]);\n            backtracking(nums,i+1);\n            path.remove(path.size()-1);\n        }\n    }\n}",
+  "notes": null
+}

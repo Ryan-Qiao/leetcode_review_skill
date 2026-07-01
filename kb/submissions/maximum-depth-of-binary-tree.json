@@ -1,0 +1,25 @@
+{
+  "slug": "maximum-depth-of-binary-tree",
+  "frontendId": "104",
+  "title": "Maximum Depth of Binary Tree",
+  "titleCn": "二叉树的最大深度",
+  "difficulty": "EASY",
+  "source": "user_submission",
+  "sourceUrl": "https://leetcode.cn/problems/maximum-depth-of-binary-tree/submissions/713897056",
+  "submissionId": "713897056",
+  "status": "通过",
+  "language": "Java",
+  "runtime": "0 ms",
+  "memory": "43.84 MB",
+  "submittedAt": "2026.03.31 16:54",
+  "code": "/**\n * Definition for a binary tree node.\n * public class TreeNode {\n *     int val;\n *     TreeNode left;\n *     TreeNode right;\n *     TreeNode() {}\n *     TreeNode(int val) { this.val = val; }\n *     TreeNode(int val, TreeNode left, TreeNode right) {\n *         this.val = val;\n *         this.left = left;\n *         this.right = right;\n *     }\n * }\n */\nclass Solution {\n    int maxH = 0;\n    public int maxDepth(TreeNode root) {\n        dfs(root,0);\n        return maxH;\n    }\n    public void dfs(TreeNode root,int h){\n        if(root==null)\n        return;\n        h++;\n        maxH = Math.max(maxH,h);\n        dfs(root.left,h);\n        dfs(root.right,h);\n    }\n}",
+  "schemaVersion": 1,
+  "aliases": [
+    "104",
+    "104. 二叉树的最大深度",
+    "Maximum Depth of Binary Tree",
+    "maximum-depth-of-binary-tree",
+    "二叉树的最大深度"
+  ],
+  "retrievedAt": 1782841551
+}

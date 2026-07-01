@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "slug": "sort-colors",
+  "frontendId": "75",
+  "title": "Sort Colors",
+  "titleCn": "颜色分类",
+  "difficulty": "MEDIUM",
+  "aliases": [
+    "75",
+    "75. 颜色分类",
+    "Sort Colors",
+    "sort-colors",
+    "颜色分类"
+  ],
+  "source": "user_submission",
+  "sourceUrl": "https://leetcode.cn/problems/sort-colors/submissions/715461958",
+  "submissionId": "715461958",
+  "status": "通过",
+  "language": "Java",
+  "runtime": "0 ms",
+  "memory": "42.88 MB",
+  "submittedAt": "2026.04.06 00:19",
+  "retrievedAt": 1782849783,
+  "code": "class Solution {\n    public void sortColors(int[] nums) {\n        int p0 = 0;\n        int p1 = 0;\n        for(int i = 0;i<nums.length;i++){\n            int x = nums[i];\n            nums[i] = 2;\n            if(x<=1){\n                nums[p1++] = 1;\n            }\n            if(x==0){\n                nums[p0++] = 0;\n            }\n        }\n    }\n}",
+  "notes": null
+}

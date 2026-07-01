@@ -1,0 +1,25 @@
+{
+  "aliases": [
+    "54",
+    "54. 螺旋矩阵",
+    "Spiral Matrix",
+    "spiral-matrix",
+    "螺旋矩阵"
+  ],
+  "code": "class Solution {\n    public List<Integer> spiralOrder(int[][] matrix) {\n        int t = 0;\n        int b = matrix.length-1;\n        int l = 0;\n        int r = matrix[0].length-1;\n        List<Integer> res = new ArrayList<>();\n        while(true){\n            for(int i = l;i<=r;i++){\n                res.add(matrix[t][i]);\n            }\n            if(++t>b)\n                break;\n            for(int i = t;i<=b;i++){\n                res.add(matrix[i][r]);\n            }\n            if(--r<l)\n                break;\n            for(int i = r;i>=l;i--){\n                res.add(matrix[b][i]);\n            }\n            if(--b<t)\n                break;\n            for(int i = b;i>=t;i--){\n                res.add(matrix[i][l]);\n            }\n            if(++l>r)\n                break;\n        }\n        return res;\n    }\n}",
+  "difficulty": "MEDIUM",
+  "frontendId": "54",
+  "language": "Java",
+  "memory": "42.57 MB",
+  "retrievedAt": 1782840996,
+  "runtime": "0 ms",
+  "schemaVersion": 1,
+  "slug": "spiral-matrix",
+  "source": "user_submission",
+  "sourceUrl": "https://leetcode.cn/problems/spiral-matrix/submissions/706140913",
+  "status": "通过",
+  "submissionId": "706140913",
+  "submittedAt": "2026.03.12 16:23",
+  "title": "Spiral Matrix",
+  "titleCn": "螺旋矩阵"
+}

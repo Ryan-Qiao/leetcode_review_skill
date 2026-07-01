@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "slug": "n-queens",
+  "frontendId": "51",
+  "title": "N-Queens",
+  "titleCn": "N 皇后",
+  "difficulty": "HARD",
+  "aliases": [
+    "51",
+    "51. N 皇后",
+    "N 皇后",
+    "N-Queens",
+    "n-queens"
+  ],
+  "source": "user_submission",
+  "sourceUrl": "https://leetcode.cn/problems/n-queens/submissions/694353047",
+  "submissionId": "694353047",
+  "status": "通过",
+  "language": "Java",
+  "runtime": "3 ms",
+  "memory": "45.86 MB",
+  "submittedAt": "2026.01.27 10:20",
+  "retrievedAt": 1782843188,
+  "code": "class Solution {\n    List<List<String>> res = new ArrayList<>();\n    public List<List<String>> solveNQueens(int n) {\n        char[][] chessboard = new char[n][n];\n        for (char[] item : chessboard) {\n            Arrays.fill(item, '.');\n        }\n        backtracking(chessboard,0);\n        return res;\n    }\n    private void backtracking(char[][] chessboard, int row) {\n        if (row == chessboard.length) {\n            addToRes(chessboard);\n            return;\n        }\n        for (int col = 0; col < chessboard[0].length; col++) {\n            if (isVaild(chessboard, row, col)) {\n                chessboard[row][col] = 'Q';\n                backtracking(chessboard, row + 1);\n                chessboard[row][col] = '.';\n            }\n        }\n    }\n    private boolean isVaild(char[][] chessboard, int row, int col) {\n        for(int i = 0;i<chessboard.length;i++){\n            if(chessboard[i][col]=='Q')\n            return false;\n        }\n        for(int i = row-1,j = col-1;i>=0 && j>=0;i--,j--){\n            if(chessboard[i][j]=='Q')\n            return false;\n        }\n        for(int i = row-1,j = col + 1; i>=0&&j<chessboard[0].length ;i--,j++){\n            if(chessboard[i][j]=='Q')\n            return false;\n        }\n        return true;\n    }\n    private void addToRes(char[][]chessboard){\n        List<String> path = new ArrayList<>();\n        for(char[]item:chessboard){\n            StringBuilder sb = new StringBuilder();\n            for(char c:item){\n                sb.append(c);\n            }\n            path.add(sb.toString());\n        }\n        res.add(path);\n    }\n}",
+  "notes": null
+}

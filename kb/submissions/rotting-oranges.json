@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "slug": "rotting-oranges",
+  "frontendId": "994",
+  "title": "Rotting Oranges",
+  "titleCn": "腐烂的橘子",
+  "difficulty": "MEDIUM",
+  "aliases": [
+    "994",
+    "994. 腐烂的橘子",
+    "Rotting Oranges",
+    "rotting-oranges",
+    "腐烂的橘子"
+  ],
+  "source": "user_submission",
+  "sourceUrl": "https://leetcode.cn/problems/rotting-oranges/submissions/710964293",
+  "submissionId": "710964293",
+  "status": "通过",
+  "language": "Java",
+  "runtime": "1 ms",
+  "memory": "43.32 MB",
+  "submittedAt": "2026.03.23 16:44",
+  "retrievedAt": 1782843120,
+  "code": "class Solution {\n    public int orangesRotting(int[][] grid) {\n        int count = 0;\n        Deque<int[]> queue = new ArrayDeque<>();\n        for(int i = 0;i<grid.length;i++){\n            for(int j = 0;j<grid[0].length;j++){\n                if(grid[i][j]==1)\n                count++;\n                if(grid[i][j]==2)\n                queue.offer(new int[]{i,j});\n            }\n        }\n        int res = 0;\n        while(count>0 && !queue.isEmpty()){\n            int n = queue.size();\n            res++;\n            for(int i = 0;i<n;i++){\n                int[]pos = queue.poll();\n                int x = pos[0];\n                int y = pos[1];\n                if(x-1>=0 && grid[x-1][y]==1){\n                    queue.offer(new int[]{x-1,y});\n                    count--;\n                    grid[x-1][y] = 2;\n                }\n                if(x+1<grid.length && grid[x+1][y]==1){\n                    queue.offer(new int[]{x+1,y});\n                    count--;\n                    grid[x+1][y] = 2;\n                }\n                if(y-1>=0 && grid[x][y-1]==1){\n                    queue.offer(new int[]{x,y-1});\n                    count--;\n                    grid[x][y-1] = 2;\n                }\n                if(y+1<grid[0].length && grid[x][y+1]==1){\n                    queue.offer(new int[]{x,y+1});\n                    count--;\n                    grid[x][y+1] = 2;\n                }\n            }\n        }\n        if(count==0)\n        return res;\n        return -1;\n    }\n}",
+  "notes": null
+}

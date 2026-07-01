@@ -1,0 +1,25 @@
+{
+  "aliases": [
+    "200",
+    "200. 岛屿数量",
+    "Number of Islands",
+    "number-of-islands",
+    "岛屿数量"
+  ],
+  "code": "class Solution {\n    public int numIslands(char[][] grid) {\n        int res = 0;\n        for(int i = 0;i<grid.length;i++){\n            for(int j = 0;j<grid[0].length;j++){\n                if(grid[i][j]=='1'){\n                    dfs(grid,i,j);\n                    res++;\n                }\n            }\n        }\n        return res;\n    }\n    public void dfs(char[][]grid,int x,int y){\n        if(x<0 || x>=grid.length || y<0 || y>=grid[0].length){\n            return;\n        }\n        if(grid[x][y]=='2' || grid[x][y]=='0')\n        return;\n        grid[x][y] = '2';\n        dfs(grid,x-1,y);\n        dfs(grid,x+1,y);\n        dfs(grid,x,y-1);\n        dfs(grid,x,y+1);\n    }\n}",
+  "difficulty": "MEDIUM",
+  "frontendId": "200",
+  "language": "Java",
+  "memory": "51.36 MB",
+  "retrievedAt": 1782842354,
+  "runtime": "5 ms",
+  "schemaVersion": 1,
+  "slug": "number-of-islands",
+  "source": "user_submission",
+  "sourceUrl": "https://leetcode.cn/problems/number-of-islands/submissions/712966397",
+  "status": "通过",
+  "submissionId": "712966397",
+  "submittedAt": "2026.03.28 21:16",
+  "title": "Number of Islands",
+  "titleCn": "岛屿数量"
+}

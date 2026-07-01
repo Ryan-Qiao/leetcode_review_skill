@@ -1,0 +1,23 @@
+{
+  "slug": "swap-nodes-in-pairs",
+  "frontendId": "24",
+  "title": "Swap Nodes in Pairs",
+  "titleCn": "两两交换链表中的节点",
+  "difficulty": "MEDIUM",
+  "source": "user_submission",
+  "sourceUrl": "https://leetcode.cn/problems/swap-nodes-in-pairs/submissions/715460959",
+  "submissionId": "715460959",
+  "status": "通过",
+  "language": null,
+  "submittedAt": null,
+  "code": "class Solution {\n    public ListNode swapPairs(ListNode head) {\n        if(head == null || head.next == null){\n            return head;\n        }\n        ListNode next = head.next;\n        head.next = swapPairs(next.next);\n        next.next = head;\n        return next;\n    }\n}",
+  "schemaVersion": 1,
+  "aliases": [
+    "24",
+    "24. 两两交换链表中的节点",
+    "Swap Nodes in Pairs",
+    "swap-nodes-in-pairs",
+    "两两交换链表中的节点"
+  ],
+  "retrievedAt": 1782840760
+}

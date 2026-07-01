@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "slug": "word-break",
+  "frontendId": "139",
+  "title": "Word Break",
+  "titleCn": "单词拆分",
+  "difficulty": "MEDIUM",
+  "aliases": [
+    "139",
+    "139. 单词拆分",
+    "Word Break",
+    "word-break",
+    "单词拆分"
+  ],
+  "source": "user_submission",
+  "sourceUrl": "https://leetcode.cn/problems/word-break/submissions/695806728",
+  "submissionId": "695806728",
+  "status": "通过",
+  "language": "Java",
+  "runtime": "8 ms",
+  "memory": "45.56 MB",
+  "submittedAt": "2026.02.02 11:32",
+  "retrievedAt": 1782849701,
+  "code": "class Solution {\n    public boolean wordBreak(String s, List<String> wordDict) {\n        Set<String> set = new HashSet<>(wordDict);\n        boolean[]dp = new boolean[s.length()+1];\n        dp[0] = true;\n        for(int i = 1;i<=s.length();i++){\n            for(int j = 0;j<i;j++){\n                if(dp[j]==true && set.contains(s.substring(j,i))){\n                    dp[i] = true;\n                }\n            }\n        }\n        return dp[s.length()];\n    }\n}",
+  "notes": null
+}

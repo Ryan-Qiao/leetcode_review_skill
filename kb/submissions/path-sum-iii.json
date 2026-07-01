@@ -1,0 +1,25 @@
+{
+  "aliases": [
+    "437",
+    "437. 路径总和 III",
+    "Path Sum III",
+    "path-sum-iii",
+    "路径总和 III"
+  ],
+  "code": "/**\n * Definition for a binary tree node.\n * public class TreeNode {\n *     int val;\n *     TreeNode left;\n *     TreeNode right;\n *     TreeNode() {}\n *     TreeNode(int val) { this.val = val; }\n *     TreeNode(int val, TreeNode left, TreeNode right) {\n *         this.val = val;\n *         this.left = left;\n *         this.right = right;\n *     }\n * }\n */\nclass Solution {\n    int res = 0;\n    public int pathSum(TreeNode root, int targetSum) {\n        Map<Long,Integer> cnt = new HashMap<>();\n        cnt.put(0L,1);\n        long s = 0;\n        dfs(root,s,targetSum,cnt);\n        return res;\n    }\n    public void dfs(TreeNode root,long s,int targetSum,Map<Long,Integer> cnt){\n        if(root==null)\n        return;\n        s+=root.val;\n        res+=cnt.getOrDefault(s-targetSum,0);\n        cnt.put(s,cnt.getOrDefault(s,0)+1);\n        dfs(root.left,s,targetSum,cnt);\n        dfs(root.right,s,targetSum,cnt);\n        cnt.put(s,cnt.getOrDefault(s,0)-1);\n        return;\n    }\n}",
+  "difficulty": "MEDIUM",
+  "frontendId": "437",
+  "language": "Java",
+  "memory": "45.23 MB",
+  "retrievedAt": 1782841046,
+  "runtime": "4 ms",
+  "schemaVersion": 1,
+  "slug": "path-sum-iii",
+  "source": "user_submission",
+  "sourceUrl": "https://leetcode.cn/problems/path-sum-iii/submissions/713188788",
+  "status": "通过",
+  "submissionId": "713188788",
+  "submittedAt": "2026.03.29 16:38",
+  "title": "Path Sum III",
+  "titleCn": "路径总和 III"
+}

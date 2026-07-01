@@ -1,0 +1,25 @@
+{
+  "slug": "partition-equal-subset-sum",
+  "frontendId": "416",
+  "title": "Partition Equal Subset Sum",
+  "titleCn": "分割等和子集",
+  "difficulty": "MEDIUM",
+  "source": "user_submission",
+  "sourceUrl": "https://leetcode.cn/problems/partition-equal-subset-sum/submissions/695857785",
+  "submissionId": "695857785",
+  "status": "通过",
+  "language": "Java",
+  "runtime": "44 ms",
+  "memory": "46.76 MB",
+  "submittedAt": "2026.02.02 15:24",
+  "code": "class Solution {\n    public boolean canPartition(int[] nums) {\n        int sum = 0;\n        for(int num:nums){\n            sum+=num;\n        }\n        if(sum%2!=0)\n        return false;\n        int target = sum/2;\n        boolean[][]dp = new boolean[nums.length+1][target+1];\n        dp[0][0] = true;\n        for(int i = 1;i<=nums.length;i++){\n            for(int j = 0;j<=target;j++){\n                dp[i][j] = dp[i-1][j] ||(j>=nums[i-1]?dp[i-1][j-nums[i-1]]:false);\n            }\n        }\n        return dp[nums.length][target];\n    }\n}",
+  "schemaVersion": 1,
+  "aliases": [
+    "416",
+    "416. 分割等和子集",
+    "Partition Equal Subset Sum",
+    "partition-equal-subset-sum",
+    "分割等和子集"
+  ],
+  "retrievedAt": 1782841691
+}

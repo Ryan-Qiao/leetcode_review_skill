@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "slug": "longest-valid-parentheses",
+  "frontendId": "32",
+  "title": "Longest Valid Parentheses",
+  "titleCn": "最长有效括号",
+  "difficulty": "HARD",
+  "aliases": [
+    "32",
+    "32. 最长有效括号",
+    "Longest Valid Parentheses",
+    "longest-valid-parentheses",
+    "最长有效括号"
+  ],
+  "source": "user_submission",
+  "sourceUrl": "https://leetcode.cn/problems/longest-valid-parentheses/submissions/613097701",
+  "submissionId": "613097701",
+  "status": "通过",
+  "language": "Java",
+  "runtime": "1 ms",
+  "memory": "41.65 MB",
+  "submittedAt": "2025.03.20 10:32",
+  "retrievedAt": 1782849706,
+  "code": "class Solution {\n    public int longestValidParentheses(String s) {\n        int[]dp = new int[s.length()+1];\n        int res = 0;\n        for(int i = 1;i<s.length();i++)\n        {\n            if(s.charAt(i)==')')\n            {\n                if(s.charAt(i-1)=='(')\n                {\n                    dp[i] = 2;\n                    if(i-2>=0)\n                    {\n                        dp[i] = dp[i]+dp[i-2];\n                    }\n                }\n                else if(dp[i-1]>0)\n                {\n                    if((i-dp[i-1]-1)>=0&&s.charAt(i-dp[i-1]-1)=='(')\n                    {\n                        dp[i] = dp[i-1]+2;\n                        if((i-dp[i-1]-2)>=0)\n                        {\n                            dp[i] = dp[i]+dp[i-dp[i-1]-2];\n                        }\n                    }\n                }\n            }\n            res = Math.max(res,dp[i]);\n        }\n        return res;\n    }\n}",
+  "notes": null
+}

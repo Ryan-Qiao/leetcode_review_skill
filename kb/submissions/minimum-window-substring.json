@@ -1,0 +1,25 @@
+{
+  "slug": "minimum-window-substring",
+  "frontendId": "76",
+  "title": "Minimum Window Substring",
+  "titleCn": "最小覆盖子串",
+  "difficulty": "HARD",
+  "source": "user_submission",
+  "sourceUrl": "https://leetcode.cn/problems/minimum-window-substring/submissions/711597289",
+  "submissionId": "711597289",
+  "status": "通过",
+  "language": "Java",
+  "runtime": "19 ms",
+  "memory": "44.85 MB",
+  "submittedAt": "2026.03.24 22:51",
+  "code": "class Solution {\n    public String minWindow(String s, String t) {\n        int[]cntS = new int[130];\n        int[]cntT = new int[130];\n        for(int i = 0;i<t.length();i++){\n            cntT[t.charAt(i)]++;\n        }\n        int left = 0;\n        int right = 0;\n        int resleft = 0;\n        int reslen = Integer.MAX_VALUE;\n        for(;right<s.length();right++){\n            cntS[s.charAt(right)]++;\n            while(isCovered(cntS,cntT)){\n                if(right-left+1<reslen){\n                    resleft = left;\n                    reslen = right-left+1;\n                }\n                cntS[s.charAt(left)]--;\n                left++;\n            }\n        }\n        return reslen==Integer.MAX_VALUE?\"\":s.substring(resleft,resleft+reslen);\n    }\n    public boolean isCovered(int[]cntS,int[]cntT){\n        for(int i = 'a';i<='z';i++){\n            if(cntT[i]>cntS[i]){\n                return false;\n            }\n        }\n        for(int i = 'A';i<='Z';i++){\n            if(cntT[i]>cntS[i]){\n                return false;\n            }\n        }\n        return true;\n    }\n}",
+  "schemaVersion": 1,
+  "aliases": [
+    "76",
+    "76. 最小覆盖子串",
+    "Minimum Window Substring",
+    "minimum-window-substring",
+    "最小覆盖子串"
+  ],
+  "retrievedAt": 1782842304
+}

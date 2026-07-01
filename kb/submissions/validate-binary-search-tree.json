@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "slug": "validate-binary-search-tree",
+  "frontendId": "98",
+  "title": "Validate Binary Search Tree",
+  "titleCn": "验证二叉搜索树",
+  "difficulty": "MEDIUM",
+  "aliases": [
+    "98",
+    "98. 验证二叉搜索树",
+    "Validate Binary Search Tree",
+    "validate-binary-search-tree",
+    "验证二叉搜索树"
+  ],
+  "source": "user_submission",
+  "sourceUrl": "https://leetcode.cn/problems/validate-binary-search-tree/submissions/710716486",
+  "submissionId": "710716486",
+  "status": "通过",
+  "language": "Java",
+  "runtime": "0 ms",
+  "memory": "44.30 MB",
+  "submittedAt": "2026.03.22 23:08",
+  "retrievedAt": 1782843091,
+  "code": "/**\n * Definition for a binary tree node.\n * public class TreeNode {\n *     int val;\n *     TreeNode left;\n *     TreeNode right;\n *     TreeNode() {}\n *     TreeNode(int val) { this.val = val; }\n *     TreeNode(int val, TreeNode left, TreeNode right) {\n *         this.val = val;\n *         this.left = left;\n *         this.right = right;\n *     }\n * }\n */\nclass Solution {\n    public boolean isValidBST(TreeNode root) {\n        return isBST(root,Long.MIN_VALUE,Long.MAX_VALUE);\n    }\n    public boolean isBST(TreeNode root,long left,long right){\n        if(root==null)\n        return true;\n        return root.val<right && root.val>left && isBST(root.left,left,root.val)&& isBST(root.right,root.val,right);\n    }\n}",
+  "notes": null
+}

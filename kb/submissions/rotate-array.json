@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "slug": "rotate-array",
+  "frontendId": "189",
+  "title": "Rotate Array",
+  "titleCn": "轮转数组",
+  "difficulty": "MEDIUM",
+  "aliases": [
+    "189",
+    "189. 轮转数组",
+    "Rotate Array",
+    "rotate-array",
+    "轮转数组"
+  ],
+  "source": "user_submission",
+  "sourceUrl": "https://leetcode.cn/problems/rotate-array/submissions/691702865",
+  "submissionId": "691702865",
+  "status": "通过",
+  "language": "Java",
+  "runtime": "0 ms",
+  "memory": "60.23 MB",
+  "submittedAt": "2026.01.16 09:53",
+  "retrievedAt": 1782842916,
+  "code": "class Solution {\n    public void rotate(int[] nums, int k) {\n        k = k%nums.length;\n        reverse(nums,0,nums.length-k-1);\n        reverse(nums,nums.length-k,nums.length-1);\n        reverse(nums,0,nums.length-1);\n    }\n    private void reverse(int[]nums,int left,int right){\n        while(left<right){\n            int temp = nums[left];\n            nums[left] = nums[right];\n            nums[right] = temp;\n            left++;\n            right--;\n        }\n    }\n}",
+  "notes": null
+}

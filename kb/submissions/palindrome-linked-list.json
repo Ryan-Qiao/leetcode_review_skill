@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "slug": "palindrome-linked-list",
+  "frontendId": "234",
+  "title": "Palindrome Linked List",
+  "titleCn": "回文链表",
+  "difficulty": "EASY",
+  "aliases": [
+    "234",
+    "234. 回文链表",
+    "Palindrome Linked List",
+    "palindrome-linked-list",
+    "回文链表"
+  ],
+  "source": "user_submission",
+  "sourceUrl": "https://leetcode.cn/problems/palindrome-linked-list/submissions/713113403",
+  "submissionId": "713113403",
+  "status": "通过",
+  "language": "Java",
+  "runtime": "5 ms",
+  "memory": "92.73 MB",
+  "submittedAt": "2026.03.29 13:31",
+  "retrievedAt": 1782843065,
+  "code": "/**\n * Definition for singly-linked list.\n * public class ListNode {\n *     int val;\n *     ListNode next;\n *     ListNode() {}\n *     ListNode(int val) { this.val = val; }\n *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }\n * }\n */\nclass Solution {\n    public boolean isPalindrome(ListNode head) {\n        ListNode head1 = findMid(head);\n        ListNode head2 = reverse(head1);\n        while(head!=null && head2!=null){\n            if(head.val!=head2.val)\n            return false;\n            head = head.next;\n            head2 = head2.next;\n        }\n        return true;\n    }\n    public ListNode findMid(ListNode head){\n        ListNode slow = head;\n        ListNode fast = head;\n        ListNode pre = head;\n        while(fast!=null && fast.next!=null){\n            pre = slow;\n            slow = slow.next;\n            fast = fast.next.next;\n        }\n        pre.next = null;\n        return slow;\n    }\n    public ListNode reverse(ListNode head){\n        ListNode cur = head;\n        ListNode pre = null;\n        while(cur!=null){\n            ListNode temp = cur.next;\n            cur.next = pre;\n            pre = cur;\n            cur = temp;\n        }\n        return pre;\n    }\n}",
+  "notes": null
+}

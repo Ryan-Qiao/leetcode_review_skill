@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "slug": "house-robber",
+  "frontendId": "198",
+  "title": "House Robber",
+  "titleCn": "打家劫舍",
+  "difficulty": "MEDIUM",
+  "aliases": [
+    "198",
+    "198. 打家劫舍",
+    "House Robber",
+    "house-robber",
+    "打家劫舍"
+  ],
+  "source": "user_submission",
+  "sourceUrl": "https://leetcode.cn/problems/house-robber/submissions/713906988",
+  "submissionId": "713906988",
+  "status": "通过",
+  "language": "Java",
+  "runtime": "0 ms",
+  "memory": "42.18 MB",
+  "submittedAt": "2026.03.31 17:14",
+  "retrievedAt": 1782843636,
+  "code": "class Solution {\n    public int rob(int[] nums) {\n        if(nums.length==1)\n        return nums[0];\n        int[]dp = new int[nums.length];\n        dp[0] = nums[0];\n        dp[1] = Math.max(nums[0],nums[1]);\n        for(int i = 2;i<nums.length;i++){\n            dp[i] = Math.max(dp[i-1],dp[i-2]+nums[i]);\n        }\n        return dp[nums.length-1];\n    }\n}",
+  "notes": null
+}

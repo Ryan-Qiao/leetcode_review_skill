@@ -1,0 +1,23 @@
+{
+  "slug": "remove-nth-node-from-end-of-list",
+  "frontendId": "19",
+  "title": "Remove Nth Node From End of List",
+  "titleCn": "删除链表的倒数第 N 个结点",
+  "difficulty": "MEDIUM",
+  "source": "user_submission",
+  "sourceUrl": "https://leetcode.cn/problems/remove-nth-node-from-end-of-list/submissions/692358775",
+  "submissionId": "692358775",
+  "status": "通过",
+  "language": "Java",
+  "submittedAt": "2026.01.19 10:22",
+  "code": "/**\n * Definition for singly-linked list.\n * public class ListNode {\n *     int val;\n *     ListNode next;\n *     ListNode() {}\n *     ListNode(int val) { this.val = val; }\n *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }\n * }\n */\nclass Solution {\n    public ListNode removeNthFromEnd(ListNode head, int n) {\n        ListNode dummy = new ListNode();\n        dummy.next = head;\n        ListNode fast = dummy;\n        ListNode slow = dummy;\n        for(int i = 0;i<=n;i++){\n            fast = fast.next;\n        }\n        while(fast!=null){\n            slow = slow.next;\n            fast = fast.next;\n        }\n        slow.next = slow.next.next;\n        return dummy.next;\n    }\n}",
+  "schemaVersion": 1,
+  "aliases": [
+    "19",
+    "19. 删除链表的倒数第 N 个结点",
+    "Remove Nth Node From End of List",
+    "remove-nth-node-from-end-of-list",
+    "删除链表的倒数第 N 个结点"
+  ],
+  "retrievedAt": 1782840745
+}

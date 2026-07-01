@@ -1,0 +1,25 @@
+{
+  "slug": "longest-increasing-subsequence",
+  "frontendId": "300",
+  "title": "Longest Increasing Subsequence",
+  "titleCn": "最长递增子序列",
+  "difficulty": "MEDIUM",
+  "source": "user_submission",
+  "sourceUrl": "https://leetcode.cn/problems/longest-increasing-subsequence/submissions/713664086",
+  "submissionId": "713664086",
+  "status": "通过",
+  "language": "Java",
+  "runtime": "71 ms",
+  "memory": "45.18 MB",
+  "submittedAt": "2026.03.30 22:22",
+  "code": "class Solution {\n    public int lengthOfLIS(int[] nums) {\n        int[]dp = new int[nums.length];\n        Arrays.fill(dp,1);\n        for(int i = 0;i<nums.length;i++){\n            for(int j = 0;j<i;j++){\n                if(nums[j]<nums[i]){\n                    dp[i] = Math.max(dp[i],dp[j]+1);\n                }\n            }\n        }\n        int res = 0;\n        for(int num:dp){\n            res = Math.max(res,num);\n        }\n        return res;\n    }\n}",
+  "schemaVersion": 1,
+  "aliases": [
+    "300",
+    "300. 最长递增子序列",
+    "Longest Increasing Subsequence",
+    "longest-increasing-subsequence",
+    "最长递增子序列"
+  ],
+  "retrievedAt": 1782841673
+}

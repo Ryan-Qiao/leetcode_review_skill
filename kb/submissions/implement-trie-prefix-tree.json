@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "slug": "implement-trie-prefix-tree",
+  "frontendId": "208",
+  "title": "Implement Trie (Prefix Tree)",
+  "titleCn": "实现 Trie (前缀树)",
+  "difficulty": "MEDIUM",
+  "aliases": [
+    "208",
+    "208. 实现 Trie (前缀树)",
+    "Implement Trie (Prefix Tree)",
+    "implement-trie-prefix-tree",
+    "实现 Trie (前缀树)"
+  ],
+  "source": "user_submission",
+  "sourceUrl": "https://leetcode.cn/problems/implement-trie-prefix-tree/submissions/713007540",
+  "submissionId": "713007540",
+  "status": "通过",
+  "language": "Java",
+  "runtime": "32 ms",
+  "memory": "61.21 MB",
+  "submittedAt": "2026.03.28 23:13",
+  "retrievedAt": 1782843230,
+  "code": "class Trie {\n    class Node{\n        Node[] son;\n        boolean isEnd;\n        Node(){\n            son = new Node[26];\n            isEnd = false;\n        }\n    }\n    Node root;\n    public Trie() {\n        root = new Node();\n    }\n    public void insert(String word) {\n        Node cur = root;\n        for(int i = 0;i<word.length();i++){\n            if(cur.son[word.charAt(i)-'a']!=null){\n                cur = cur.son[word.charAt(i)-'a'];\n            }else{\n                cur.son[word.charAt(i)-'a'] = new Node();\n                cur = cur.son[word.charAt(i)-'a'];\n            }\n        }\n        cur.isEnd = true;\n    }\n    public boolean search(String word) {\n        Node cur = root;\n        for(int i = 0;i<word.length();i++){\n            if(cur.son[word.charAt(i)-'a']!=null){\n                cur = cur.son[word.charAt(i)-'a'];\n            }else{\n                return false;\n            }\n        }\n        return cur.isEnd==true?true:false;\n    }\n    public boolean startsWith(String prefix) {\n        Node cur = root;\n        for(int i = 0;i<prefix.length();i++){\n            if(cur.son[prefix.charAt(i)-'a']!=null){\n                cur = cur.son[prefix.charAt(i)-'a'];\n            }else{\n                return false;\n            }\n        }\n        return true;\n    }\n}\n/**\n * Your Trie object will be instantiated and called as such:\n * Trie obj = new Trie();\n * obj.insert(word);\n * boolean param_2 = obj.search(word);\n * boolean param_3 = obj.startsWith(prefix);\n */",
+  "notes": null
+}

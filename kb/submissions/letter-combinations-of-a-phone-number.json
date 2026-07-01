@@ -1,0 +1,25 @@
+{
+  "aliases": [
+    "17",
+    "17. 电话号码的字母组合",
+    "Letter Combinations of a Phone Number",
+    "letter-combinations-of-a-phone-number",
+    "电话号码的字母组合"
+  ],
+  "code": "class Solution {\n    List<String> res = new ArrayList<>();\n    List<Character> path = new ArrayList<>();\n    public List<String> letterCombinations(String digits) {\n        String[] numStrings = { \"\", \"\", \"abc\", \"def\", \"ghi\", \"jkl\", \"mno\", \"pqrs\", \"tuv\", \"wxyz\" };\n        backtracking(digits,numStrings,0);\n        return res;\n    }\n    private String path2String() {\n        StringBuilder sb = new StringBuilder();\n        for (Character c : path) {\n            sb.append(c);\n        }\n        return sb.toString();\n    }\n    private void backtracking(String digits, String[] numStrings, int startIndex) {\n        if (digits.length() == path.size()){\n            res.add(path2String());\n            return;\n        }\n        String str = numStrings[digits.charAt(startIndex)-'0'];\n        for(int i = 0;i<str.length();i++){\n            path.addLast(str.charAt(i));\n            backtracking(digits,numStrings,startIndex+1);\n            path.removeLast();\n        }\n    }\n}",
+  "difficulty": "MEDIUM",
+  "frontendId": "17",
+  "language": "Java",
+  "memory": "43.13 MB",
+  "retrievedAt": 1782841126,
+  "runtime": "1 ms",
+  "schemaVersion": 1,
+  "slug": "letter-combinations-of-a-phone-number",
+  "source": "user_submission",
+  "sourceUrl": "https://leetcode.cn/problems/letter-combinations-of-a-phone-number/submissions/694135394",
+  "status": "通过",
+  "submissionId": "694135394",
+  "submittedAt": "2026.01.26 13:55",
+  "title": "Letter Combinations of a Phone Number",
+  "titleCn": "电话号码的字母组合"
+}

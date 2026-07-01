@@ -1,0 +1,23 @@
+{
+  "aliases": [
+    "295",
+    "find-median-from-data-stream",
+    "数据流的中位数"
+  ],
+  "code": "class MedianFinder {\n    PriorityQueue<Integer> minHeap;\n    PriorityQueue<Integer> maxHeap;\n    public MedianFinder() {\n        minHeap = new PriorityQueue<>();\n        maxHeap = new PriorityQueue<>((pair1,pair2)->{\n            return pair2-pair1;\n        });\n    }\n    public void addNum(int num) {\n        if(minHeap.size()==maxHeap.size())\n        {\n            maxHeap.offer(num);\n            minHeap.offer(maxHeap.poll());\n        }\n        else\n        {\n            minHeap.offer(num);\n            maxHeap.offer(minHeap.poll());\n        }\n    }\n    public double findMedian() {\n        if(maxHeap.size()==minHeap.size())\n        {\n            double a = maxHeap.peek();\n            double b = minHeap.peek();\n            return (a+b)/2;\n        }\n        else\n        {\n            double a = minHeap.peek();\n            return a;\n        }\n    }\n}\n/**\n * Your MedianFinder object will be instantiated and called as such:\n * MedianFinder obj = new MedianFinder();\n * obj.addNum(num);\n * double param_2 = obj.findMedian();\n */",
+  "frontendId": "295",
+  "language": "Java",
+  "memory": "62.43 MB",
+  "notes": null,
+  "retrievedAt": "2026-07-01T01:47:26.013Z",
+  "runtime": "133 ms",
+  "schemaVersion": 1,
+  "slug": "find-median-from-data-stream",
+  "source": "user_submission",
+  "sourceUrl": "https://leetcode.cn/problems/find-median-from-data-stream/submissions/611758310",
+  "status": "通过",
+  "submissionId": "611758310",
+  "submittedAt": "2025.03.17 14:30",
+  "title": "数据流的中位数",
+  "titleCn": "数据流的中位数"
+}

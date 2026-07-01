@@ -1,0 +1,25 @@
+{
+  "aliases": [
+    "35",
+    "35. 搜索插入位置",
+    "Search Insert Position",
+    "search-insert-position",
+    "搜索插入位置"
+  ],
+  "code": "class Solution {\n    public int searchInsert(int[] nums, int target) {\n        int left = 0;\n        int right = nums.length-1;\n        while(left<=right){\n            int mid = left + (right-left)/2;\n            if(nums[mid]<target){\n                left = mid+1;\n            }else if(nums[mid]>target){\n                right = mid-1;\n            }else{\n                return mid;\n            }\n        }\n        return left;\n    }\n}",
+  "difficulty": "EASY",
+  "frontendId": "35",
+  "language": "Java",
+  "memory": "44.06 MB",
+  "retrievedAt": 1782841172,
+  "runtime": "0 ms",
+  "schemaVersion": 1,
+  "slug": "search-insert-position",
+  "source": "user_submission",
+  "sourceUrl": "https://leetcode.cn/problems/search-insert-position/submissions/694356448",
+  "status": "通过",
+  "submissionId": "694356448",
+  "submittedAt": "2026.01.27 10:31",
+  "title": "Search Insert Position",
+  "titleCn": "搜索插入位置"
+}

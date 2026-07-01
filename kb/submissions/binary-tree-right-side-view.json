@@ -1,0 +1,25 @@
+{
+  "slug": "binary-tree-right-side-view",
+  "frontendId": "199",
+  "title": "Binary Tree Right Side View",
+  "titleCn": "二叉树的右视图",
+  "difficulty": "MEDIUM",
+  "source": "user_submission",
+  "sourceUrl": "https://leetcode.cn/problems/binary-tree-right-side-view/submissions/708961574",
+  "submissionId": "708961574",
+  "status": "通过",
+  "language": "Java",
+  "runtime": "1 ms",
+  "memory": "42.70 MB",
+  "submittedAt": "2026.03.18 20:37",
+  "code": "/**\n * Definition for a binary tree node.\n * public class TreeNode {\n *     int val;\n *     TreeNode left;\n *     TreeNode right;\n *     TreeNode() {}\n *     TreeNode(int val) { this.val = val; }\n *     TreeNode(int val, TreeNode left, TreeNode right) {\n *         this.val = val;\n *         this.left = left;\n *         this.right = right;\n *     }\n * }\n */\nclass Solution {\n    public List<Integer> rightSideView(TreeNode root) {\n        List<Integer> res = new ArrayList<>();\n        Deque<TreeNode> queue = new ArrayDeque<>();\n        if (root != null)\n            queue.add(root);\n        while (!queue.isEmpty()) {\n            int n = queue.size();\n            while (n-- > 0) {\n                TreeNode node = queue.poll();\n                if (n == 0)\n                    res.add(node.val);\n                if (node.left != null)\n                    queue.add(node.left);\n                if (node.right != null)\n                    queue.add(node.right);\n            }\n        }\n        return res;\n    }\n}",
+  "schemaVersion": 1,
+  "aliases": [
+    "199",
+    "199. 二叉树的右视图",
+    "Binary Tree Right Side View",
+    "binary-tree-right-side-view",
+    "二叉树的右视图"
+  ],
+  "retrievedAt": 1782841622
+}

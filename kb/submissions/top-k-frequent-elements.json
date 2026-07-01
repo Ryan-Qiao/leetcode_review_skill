@@ -1,0 +1,25 @@
+{
+  "aliases": [
+    "347",
+    "347. 前 K 个高频元素",
+    "Top K Frequent Elements",
+    "top-k-frequent-elements",
+    "前 K 个高频元素"
+  ],
+  "code": "class Solution {\n    public int[] topKFrequent(int[] nums, int k) {\n        Map<Integer,Integer> cnt = new HashMap<>();\n        for(int num:nums){\n            cnt.merge(num,1,Integer::sum);\n        }\n        int maxCnt = Collections.max(cnt.values());\n        List<Integer>[] buckets = new ArrayList[maxCnt+1];\n        for(int i = 0;i<buckets.length;i++){\n            buckets[i] = new ArrayList<>();\n        }\n        for(Map.Entry<Integer,Integer> entry:cnt.entrySet()){\n            buckets[entry.getValue()].add(entry.getKey());\n        }\n        int[]res = new int[k];\n        int j = 0;\n        for(int i = maxCnt;i>=0 && j<k;i--){\n            for(int num:buckets[i]){\n                res[j++] = num;\n            }\n        }\n        return res;\n    }\n}",
+  "difficulty": "MEDIUM",
+  "frontendId": "347",
+  "language": "Java",
+  "memory": "46.89 MB",
+  "retrievedAt": 1782841274,
+  "runtime": "11 ms",
+  "schemaVersion": 1,
+  "slug": "top-k-frequent-elements",
+  "source": "user_submission",
+  "sourceUrl": "https://leetcode.cn/problems/top-k-frequent-elements/submissions/711506045",
+  "status": "通过",
+  "submissionId": "711506045",
+  "submittedAt": "2026.03.24 19:55",
+  "title": "Top K Frequent Elements",
+  "titleCn": "前 K 个高频元素"
+}

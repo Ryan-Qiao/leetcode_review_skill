@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "slug": "perfect-squares",
+  "frontendId": "279",
+  "title": "Perfect Squares",
+  "titleCn": "完全平方数",
+  "difficulty": "MEDIUM",
+  "aliases": [
+    "279",
+    "279. 完全平方数",
+    "Perfect Squares",
+    "perfect-squares",
+    "完全平方数"
+  ],
+  "source": "user_submission",
+  "sourceUrl": "https://leetcode.cn/problems/perfect-squares/submissions/713895545",
+  "submissionId": "713895545",
+  "status": "通过",
+  "language": "Java",
+  "runtime": "48 ms",
+  "memory": "43.66 MB",
+  "submittedAt": "2026.03.31 16:51",
+  "retrievedAt": 1782849696,
+  "code": "class Solution {\n    public int numSquares(int n) {\n        int []dp = new int[n+1];\n        Arrays.fill(dp,Integer.MAX_VALUE);\n        dp[1] = 1;\n        dp[0] = 0;\n        for(int i = 1;i<=n;i++){\n            for(int j = 1;j*j<=i;j++){\n                dp[i] = Math.min(dp[i],dp[i-j*j]+1);\n            }\n        }\n        return dp[n];\n    }\n}",
+  "notes": null
+}

@@ -1,0 +1,25 @@
+{
+  "slug": "binary-tree-maximum-path-sum",
+  "frontendId": "124",
+  "title": "Binary Tree Maximum Path Sum",
+  "titleCn": "二叉树中的最大路径和",
+  "difficulty": "HARD",
+  "source": "user_submission",
+  "sourceUrl": "https://leetcode.cn/problems/binary-tree-maximum-path-sum/submissions/710724001",
+  "submissionId": "710724001",
+  "status": "通过",
+  "language": "Java",
+  "runtime": "1 ms",
+  "memory": "45.80 MB",
+  "submittedAt": "2026.03.22 23:31",
+  "code": "/**\n * Definition for a binary tree node.\n * public class TreeNode {\n *     int val;\n *     TreeNode left;\n *     TreeNode right;\n *     TreeNode() {}\n *     TreeNode(int val) { this.val = val; }\n *     TreeNode(int val, TreeNode left, TreeNode right) {\n *         this.val = val;\n *         this.left = left;\n *         this.right = right;\n *     }\n * }\n */\nclass Solution {\n    int res = Integer.MIN_VALUE;\n    public int maxPathSum(TreeNode root) {\n        dfs(root);\n        return res;\n    }\n    public int dfs(TreeNode root){\n        if(root==null)\n        return 0;\n        int left =dfs(root.left);\n        int right =dfs(root.right);\n        res = Math.max(res,root.val + left + right);\n        return Math.max(Math.max(left,right)+root.val,0);\n    }\n}",
+  "schemaVersion": 1,
+  "aliases": [
+    "124",
+    "124. 二叉树中的最大路径和",
+    "Binary Tree Maximum Path Sum",
+    "binary-tree-maximum-path-sum",
+    "二叉树中的最大路径和"
+  ],
+  "retrievedAt": 1782841062
+}

@@ -1,0 +1,25 @@
+{
+  "slug": "valid-parentheses",
+  "frontendId": "20",
+  "title": "Valid Parentheses",
+  "titleCn": "有效的括号",
+  "difficulty": "EASY",
+  "source": "user_submission",
+  "sourceUrl": "https://leetcode.cn/problems/valid-parentheses/submissions/713111514",
+  "submissionId": "713111514",
+  "status": "通过",
+  "language": "Java",
+  "runtime": "4 ms",
+  "memory": "42.90 MB",
+  "submittedAt": "2026.03.29 13:23",
+  "code": "class Solution {\n    public boolean isValid(String s) {\n        Deque<Character> stack = new ArrayDeque<>();\n        for(int i = 0;i<s.length();i++){\n            if(s.charAt(i)=='(' || s.charAt(i)=='[' || s.charAt(i)=='{'){\n                stack.push(s.charAt(i));\n            }else{\n                if(!stack.isEmpty() && s.charAt(i)==')'){\n                    char c = stack.pop();\n                    if(c=='(')\n                    continue;\n                    else{\n                        return false;\n                    }\n                }else if(!stack.isEmpty() && s.charAt(i)==']'){\n                    char c = stack.pop();\n                    if(c=='[')\n                    continue;\n                    else{\n                        return false;\n                    }\n                }else if(!stack.isEmpty() && s.charAt(i)=='}'){\n                    char c = stack.pop();\n                    if(c=='{')\n                    continue;\n                    else{\n                        return false;\n                    }\n                }else{\n                    return false;\n                }\n            }\n        }\n        return stack.isEmpty()?true:false;\n    }\n}",
+  "schemaVersion": 1,
+  "aliases": [
+    "20",
+    "20. 有效的括号",
+    "Valid Parentheses",
+    "valid-parentheses",
+    "有效的括号"
+  ],
+  "retrievedAt": 1782842413
+}

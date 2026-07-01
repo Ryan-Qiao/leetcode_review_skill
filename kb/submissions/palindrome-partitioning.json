@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "slug": "palindrome-partitioning",
+  "frontendId": "131",
+  "title": "Palindrome Partitioning",
+  "titleCn": "分割回文串",
+  "difficulty": "MEDIUM",
+  "aliases": [
+    "131",
+    "131. 分割回文串",
+    "Palindrome Partitioning",
+    "palindrome-partitioning",
+    "分割回文串"
+  ],
+  "source": "user_submission",
+  "sourceUrl": "https://leetcode.cn/problems/palindrome-partitioning/submissions/713926294",
+  "submissionId": "713926294",
+  "status": "通过",
+  "language": "Java",
+  "runtime": "8 ms",
+  "memory": "63.91 MB",
+  "submittedAt": "2026.03.31 18:04",
+  "retrievedAt": 1782843247,
+  "code": "class Solution {\n    List<List<String>> res = new ArrayList<>();\n    List<String> path = new ArrayList<>();\n    public List<List<String>> partition(String s) {\n        backtracking(s,0);\n        return res;\n    }\n    public void backtracking(String s,int startIndex){\n        if(startIndex>=s.length()){\n            res.add(new ArrayList<>(path));\n            return;\n        }\n        for(int i = startIndex;i<s.length();i++){\n            if(isHuiwen(s,startIndex,i)){\n                path.add(s.substring(startIndex,i+1));\n                backtracking(s,i+1);\n                path.remove(path.size()-1);\n            }\n        }\n    }\n    public boolean isHuiwen(String s,int left,int right){\n        while(left<right){\n            if(s.charAt(left)!=s.charAt(right))\n            return false;\n            left++;\n            right--;\n        }\n        return true;\n    }\n}",
+  "notes": null
+}

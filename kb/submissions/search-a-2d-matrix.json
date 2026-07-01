@@ -1,0 +1,23 @@
+{
+  "aliases": [
+    "74",
+    "search-a-2d-matrix",
+    "搜索二维矩阵"
+  ],
+  "code": "class Solution {\n    public boolean searchMatrix(int[][] matrix, int target) {\n        int x = 0;\n        int y = matrix[0].length-1;\n        while(x<matrix.length && y>=0){\n            if(matrix[x][y]<target){\n                x++;\n            }else if(matrix[x][y]>target){\n                y--;\n            }else{\n                return true;\n            }\n        }\n        return false;\n    }\n}",
+  "frontendId": "74",
+  "language": "Java",
+  "memory": "43.25 MB",
+  "notes": null,
+  "retrievedAt": "2026-07-01T01:46:40.564Z",
+  "runtime": "0 ms",
+  "schemaVersion": 1,
+  "slug": "search-a-2d-matrix",
+  "source": "user_submission",
+  "sourceUrl": "https://leetcode.cn/problems/search-a-2d-matrix/submissions/713126673",
+  "status": "通过",
+  "submissionId": "713126673",
+  "submittedAt": "2026.03.29 14:07",
+  "title": "搜索二维矩阵",
+  "titleCn": "搜索二维矩阵"
+}

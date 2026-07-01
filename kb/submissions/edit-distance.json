@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "slug": "edit-distance",
+  "frontendId": "72",
+  "title": "Edit Distance",
+  "titleCn": "编辑距离",
+  "difficulty": "MEDIUM",
+  "aliases": [
+    "72",
+    "72. 编辑距离",
+    "Edit Distance",
+    "edit-distance",
+    "编辑距离"
+  ],
+  "source": "user_submission",
+  "sourceUrl": "https://leetcode.cn/problems/edit-distance/submissions/713103532",
+  "submissionId": "713103532",
+  "status": "通过",
+  "language": "Java",
+  "runtime": "5 ms",
+  "memory": "46.54 MB",
+  "submittedAt": "2026.03.29 12:47",
+  "retrievedAt": 1782843759,
+  "code": "class Solution {\n    public int minDistance(String word1, String word2) {\n        int[][]dp = new int[word1.length()+1][word2.length()+1];\n        for(int i = 0;i<=word1.length();i++){\n            dp[i][0] = i;\n        }\n        for(int j = 0;j<=word2.length();j++){\n            dp[0][j] = j;\n        }\n        for(int i = 1;i<dp.length;i++){\n            for(int j = 1;j<dp[0].length;j++){\n                if(word1.charAt(i-1)==word2.charAt(j-1)){\n                    dp[i][j] = dp[i-1][j-1];\n                }else{\n                    dp[i][j] = Math.min(dp[i-1][j]+1,Math.min(dp[i][j-1]+1,dp[i-1][j-1]+1));\n                }\n            }\n        }\n        return dp[word1.length()][word2.length()];\n    }\n}",
+  "notes": null
+}

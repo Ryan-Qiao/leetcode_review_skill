@@ -1,0 +1,25 @@
+{
+  "slug": "unique-paths",
+  "frontendId": "62",
+  "title": "Unique Paths",
+  "titleCn": "不同路径",
+  "difficulty": "MEDIUM",
+  "source": "user_submission",
+  "sourceUrl": "https://leetcode.cn/problems/unique-paths/submissions/685363468",
+  "submissionId": "685363468",
+  "status": "通过",
+  "language": "Java",
+  "runtime": "0 ms",
+  "memory": "41.46 MB",
+  "submittedAt": "2025.12.17 14:44",
+  "code": "class Solution {\n    public int uniquePaths(int m, int n) {\n        int[][]dp = new int[m][n];\n        Arrays.fill(dp[0],1);\n        for(int i = 0;i<dp.length;i++){\n            dp[i][0] = 1;\n        }\n        for(int i = 1;i<dp.length;i++){\n            for(int j = 1;j<dp[0].length;j++){\n                dp[i][j] = dp[i-1][j]+ dp[i][j-1];\n            }\n        }\n        return dp[m-1][n-1];\n    }\n}",
+  "schemaVersion": 1,
+  "aliases": [
+    "62",
+    "62. 不同路径",
+    "Unique Paths",
+    "unique-paths",
+    "不同路径"
+  ],
+  "retrievedAt": 1782841713
+}

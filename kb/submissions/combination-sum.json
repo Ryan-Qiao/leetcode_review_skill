@@ -1,0 +1,25 @@
+{
+  "slug": "combination-sum",
+  "frontendId": "39",
+  "title": "Combination Sum",
+  "titleCn": "组合总和",
+  "difficulty": "MEDIUM",
+  "source": "user_submission",
+  "sourceUrl": "https://leetcode.cn/problems/combination-sum/submissions/715462543",
+  "submissionId": "715462543",
+  "status": "通过",
+  "language": "Java",
+  "runtime": "3 ms",
+  "memory": "45.03 MB",
+  "submittedAt": "2026.04.06 00:23",
+  "code": "class Solution {\n    List<List<Integer>> res = new ArrayList<>();\n    List<Integer> path = new ArrayList<>();\n    public List<List<Integer>> combinationSum(int[] candidates, int target) {\n        backtrackint(candidates,0,target,0);\n        return res;\n    }\n    public void backtrackint(int[]candidates,int startIndex,int target,int sum){\n        if(sum>=target){\n            if(sum==target)\n            res.add(new ArrayList<>(path));\n            return;\n        }\n        for(int i = startIndex;i<candidates.length;i++){\n            sum+=candidates[i];\n            path.add(candidates[i]);\n            backtrackint(candidates,i,target,sum);\n            path.remove(path.size()-1);\n            sum-=candidates[i];\n        }\n    }\n}",
+  "schemaVersion": 1,
+  "aliases": [
+    "39",
+    "39. 组合总和",
+    "Combination Sum",
+    "combination-sum",
+    "组合总和"
+  ],
+  "retrievedAt": 1782841137
+}

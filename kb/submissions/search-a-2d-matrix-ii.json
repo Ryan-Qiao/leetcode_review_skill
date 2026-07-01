@@ -1,0 +1,25 @@
+{
+  "slug": "search-a-2d-matrix-ii",
+  "frontendId": "240",
+  "title": "Search a 2D Matrix II",
+  "titleCn": "搜索二维矩阵 II",
+  "difficulty": "MEDIUM",
+  "source": "user_submission",
+  "sourceUrl": "https://leetcode.cn/problems/search-a-2d-matrix-ii/submissions/712971277",
+  "submissionId": "712971277",
+  "status": "通过",
+  "language": "Java",
+  "runtime": "4 ms",
+  "memory": "47.45 MB",
+  "submittedAt": "2026.03.28 21:30",
+  "code": "class Solution {\n    public boolean searchMatrix(int[][] matrix, int target) {\n        int x = 0;\n        int y = matrix[0].length-1;\n        while(x<matrix.length && y>=0){\n            if(matrix[x][y]<target){\n                x++;\n            }else if(matrix[x][y]>target){\n                y--;\n            }else{\n                return true;\n            }\n        }\n        return false;\n    }\n}",
+  "schemaVersion": 1,
+  "aliases": [
+    "240",
+    "240. 搜索二维矩阵 II",
+    "Search a 2D Matrix II",
+    "search-a-2d-matrix-ii",
+    "搜索二维矩阵 II"
+  ],
+  "retrievedAt": 1782841010
+}

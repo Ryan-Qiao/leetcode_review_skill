@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "slug": "min-stack",
+  "frontendId": "155",
+  "title": "Min Stack",
+  "titleCn": "最小栈",
+  "difficulty": "MEDIUM",
+  "aliases": [
+    "155",
+    "155. 最小栈",
+    "Min Stack",
+    "min-stack",
+    "最小栈"
+  ],
+  "source": "user_submission",
+  "sourceUrl": "https://leetcode.cn/problems/min-stack/submissions/694417439",
+  "submissionId": "694417439",
+  "status": "通过",
+  "language": "Java",
+  "runtime": "6 ms",
+  "memory": "46.03 MB",
+  "submittedAt": "2026.01.27 14:40",
+  "retrievedAt": 1782843301,
+  "code": "class MinStack {\n    Deque<int[]> stack = new ArrayDeque<>(); ;\n    public MinStack() {\n        stack.push(new int[]{0,Integer.MAX_VALUE});\n    }\n    public void push(int val) {\n        stack.push(new int[]{val,Math.min(getMin(),val)});\n    }\n    public void pop() {\n        stack.pop();\n    }\n    public int top() {\n        return stack.peek()[0];\n    }\n    public int getMin() {\n        return stack.peek()[1];\n    }\n}\n/**\n * Your MinStack object will be instantiated and called as such:\n * MinStack obj = new MinStack();\n * obj.push(val);\n * obj.pop();\n * int param_3 = obj.top();\n * int param_4 = obj.getMin();\n */",
+  "notes": null
+}

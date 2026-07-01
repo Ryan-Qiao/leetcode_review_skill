@@ -1,0 +1,25 @@
+{
+  "aliases": [
+    "230",
+    "230. 二叉搜索树中第 K 小的元素",
+    "Kth Smallest Element in a BST",
+    "kth-smallest-element-in-a-bst",
+    "二叉搜索树中第 K 小的元素"
+  ],
+  "code": "class Solution{\n    int res = 0;\n    int K = 0;\n    public int kthSmallest(TreeNode root,int k){\n        this.K = k;\n        dfs(root);\n        return res;\n    }\n    public void dfs(TreeNode root){\n        if(root==null)\n            return;\n        dfs(root.left);\n        K--;\n        if(K==0){\n            res = root.val;\n            return;\n        }\n        dfs(root.right);\n    }\n}",
+  "difficulty": "MEDIUM",
+  "frontendId": "230",
+  "language": "Java",
+  "memory": "46.19 MB",
+  "retrievedAt": 1782841611,
+  "runtime": "0 ms",
+  "schemaVersion": 1,
+  "slug": "kth-smallest-element-in-a-bst",
+  "source": "user_submission",
+  "sourceUrl": "https://leetcode.cn/problems/kth-smallest-element-in-a-bst/submissions/709993836",
+  "status": "通过",
+  "submissionId": "709993836",
+  "submittedAt": "2026.03.21 10:28",
+  "title": "Kth Smallest Element in a BST",
+  "titleCn": "二叉搜索树中第 K 小的元素"
+}
